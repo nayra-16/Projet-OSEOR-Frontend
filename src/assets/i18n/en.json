@@ -1,0 +1,44 @@
+{
+  "NAVBAR": {
+    "HOME": "Home",
+    "ENTREPRISES": "Companies",
+    "PROJETS": "Projects",
+    "SECTEURS": "Sectors",
+    "ABOUT": "About Us",
+    "BLOG": "Blog",
+    "CONTACT": "Contact",
+    "BON_PLAN": "Hot Deal"
+  },
+  "HERO": {
+    "TITLE": "Accelerating growth for high-potential companies",
+    "DESCRIPTION": "OSEOR SA is an innovative and dynamic holding company with multiple stakes, committed to the sustainable growth of its subsidiaries. Through transparent governance, reliable performance indicators, and centralized support functions, the group ensures effective management of its activities.",
+    "BUTTON": "Discover our services"
+  },
+  "STATS": {
+    "ENTREPRISES": "+100 supported companies",
+    "PROJETS": "+50 funded projects",
+    "SECTEURS": "+100 sub-sectors covered",
+    "MISSIONS": "+100 missions completed"
+  },
+  "SECTEURS": {
+    "TITLE": "Areas of Intervention",
+    "DESCRIPTION": "We operate in key sectors of the economy with expertise adapted to each environment.",
+    "ENERGIE": "Energy",
+    "INDUSTRIE": "Industry",
+    "SERVICES": "Services"
+  },
+  "FOOTER": {
+    "DESCRIPTION": "OSEOR is a holding company specialized in investment and financial engineering. We support high-potential SMEs and start-ups in structuring, financing, and developing their activities.",
+    "QUICK_LINKS": "Quick Links",
+    "LEGAL": "Legal",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "General Terms",
+    "MENTIONS": "Legal Notices",
+    "RIGHTS": "All rights reserved."
+  },
+  "COMMON": {
+    "SEE_DETAILS": "See details",
+    "LOADING": "Loading...",
+    "ERROR": "An error has occurred."
+  }
+}

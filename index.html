@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="cs4uBegPFigD0LmjZeO3SccJuEbwcZRtcq7NCzZ4">
+<title>Bons Plans — Kapi Consult</title>
+<meta name="description" content="Kapi Consult — Cabinet d&#039;études et de conseil en management, organisation et compétitivité. 20 ans d&#039;excellence au service des organisations d&#039;Afrique de l&#039;Ouest.">
+<link rel="canonical" href="bons-plans.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bons Plans — Kapi Consult">
+<meta property="og:description" content="Kapi Consult — Cabinet d&#039;études et de conseil en management, organisation et compétitivité. 20 ans d&#039;excellence au service des organisations d&#039;Afrique de l&#039;Ouest.">
+<meta property="og:url" content="bons-plans.html">
+<meta property="og:image" content="storage/kapi/banner_home.html">
+<meta property="og:site_name" content="Kapi Consult">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bons Plans — Kapi Consult">
+<meta name="twitter:description" content="Cabinet d&#039;études et de conseil en management, organisation et compétitivité en Afrique de l&#039;Ouest.">
+<meta name="twitter:image" content="storage/kapi/banner_home.html">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{--blue-deep:#1E2299;--blue-mid:#2A30B5;--blue-light:#6B7FE8;--blue-pale:#E8ECFD;--gold:#B8892A;--gold-light:#D4A94A;--gold-pale:#FBF5E8;--black:#0D0E1A;--gray:#6B7080;--light:#F5F6FA;--white:#FFFFFF;--shadow:0 4px 32px rgba(30,34,153,.10);--shadow-lg:0 12px 48px rgba(30,34,153,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+img{max-width:100%;height:auto}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);min-height:100vh}
+a{text-decoration:none;color:inherit}
+/* HEADER */
+.site-header{position:sticky;top:0;background:var(--white);border-bottom:2px solid var(--gold);z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 36px;display:flex;align-items:center;height:68px;gap:24px}
+.logo-area{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-grid{width:40px;height:40px;border:2px solid var(--gold);border-radius:4px;padding:3px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;flex-shrink:0}
+.logo-grid span{border-radius:1px;background:linear-gradient(135deg,var(--blue-light),var(--blue-deep))}
+.logo-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--black);white-space:nowrap}
+.site-nav{display:flex;align-items:center;gap:2px;flex:1}
+.nav-item{padding:7px 13px;font-size:14px;font-weight:500;color:var(--black);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap;text-decoration:none;display:block;position:relative}
+.nav-item:hover{color:var(--blue-deep);background:var(--blue-pale)}
+.nav-item.active{color:var(--blue-deep);font-weight:600}
+.nav-item.active::after{content:'';position:absolute;bottom:-3px;left:13px;right:13px;height:2px;background:var(--blue-deep);border-radius:2px}
+.nav-drop-group{position:relative}
+.nav-drop-group:hover .dropdown-menu{display:block}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid #E8EAF0;border-radius:12px;padding:8px;min-width:200px;box-shadow:var(--shadow-lg);z-index:200}
+.dropdown-item{display:block;padding:8px 14px;font-size:14px;color:var(--black);border-radius:7px;transition:background .2s}
+.dropdown-item:hover{background:var(--blue-pale);color:var(--blue-deep)}
+.header-cta{padding:8px 18px;background:var(--gold);color:var(--white);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
+.header-cta:hover{background:var(--gold-light)}
+/* ANNIVERSARY BANNER */
+.anniv-banner{background:linear-gradient(90deg,#0D0E1A 0%,#1E2299 30%,#131680 50%,#1E2299 70%,#0D0E1A 100%);padding:9px 0;overflow:hidden;position:relative;border-bottom:1px solid rgba(184,137,42,.3)}
+.anniv-inner{max-width:1280px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:center;gap:18px}
+.anniv-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--white);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;flex-shrink:0;box-shadow:0 2px 12px rgba(184,137,42,.4)}
+.anniv-text{font-size:13px;color:rgba(255,255,255,.85);font-weight:500;letter-spacing:.04em}
+.anniv-text strong{color:var(--gold-light)}
+.anniv-stars{display:flex;gap:5px;align-items:center}
+.anniv-star{font-size:14px;animation:starPulse 2s ease-in-out infinite}
+.anniv-star:nth-child(2){animation-delay:.3s}
+.anniv-star:nth-child(3){animation-delay:.6s}
+@keyframes starPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.3);opacity:1}}
+@keyframes confettiSlide{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.anniv-confetti{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;pointer-events:none}
+.anniv-confetti span{position:absolute;top:50%;transform:translateY(-50%);font-size:10px;animation:confettiSlide linear infinite;opacity:.35}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--blue-deep) 0%,#131680 40%,#0D0E1A 100%);min-height:86vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(184,137,42,.12) 0%,transparent 50%),radial-gradient(circle at 10% 80%,rgba(107,127,232,.15) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1280px;margin:0 auto;padding:72px 36px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border:1px solid rgba(184,137,42,.5);border-radius:20px;font-size:11px;font-weight:600;color:var(--gold-light);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
+.hero-title{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+.hero-title em{font-style:normal;color:var(--gold-light)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:36px;max-width:460px}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn-primary{padding:13px 28px;background:var(--gold);color:var(--white);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{padding:13px 28px;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35);border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+.hero-stats{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.stat-pill{padding:7px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;font-size:13px;color:rgba(255,255,255,.8)}
+.stat-pill strong{color:var(--gold-light);font-weight:700}
+/* SECTIONS */
+.section{max-width:1280px;margin:0 auto;padding:72px 36px}
+.section-bg{background:var(--light)}
+.section-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.section-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--black);line-height:1.2;margin-bottom:14px;letter-spacing:-.02em}
+.section-sub{font-size:15px;color:var(--gray);line-height:1.7;max-width:520px;margin-bottom:44px}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{background:var(--white);border-radius:16px;padding:32px 26px;border:1px solid #E8EAF0;transition:all .3s;cursor:pointer}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--blue-light)}
+.svc-icon{width:50px;height:50px;background:var(--blue-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.svc-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--black);margin-bottom:8px}
+.svc-desc{font-size:14px;color:var(--gray);line-height:1.7}
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.news-card{border-radius:16px;overflow:hidden;border:1px solid #E8EAF0;background:var(--white);transition:all .3s}
+.news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.news-img{height:170px;position:relative;overflow:hidden}
+.news-img-bg{width:100%;height:100%;background:linear-gradient(135deg,var(--blue-deep),var(--blue-light));display:flex;align-items:center;justify-content:center;font-size:38px}
+.news-cat{position:absolute;top:12px;left:12px;padding:3px 10px;background:var(--gold);color:var(--white);border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.news-body{padding:18px}
+.news-date{font-size:11px;color:var(--gray);margin-bottom:7px}
+.news-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--black);line-height:1.4;margin-bottom:8px}
+.news-excerpt{font-size:13px;color:var(--gray);line-height:1.6}
+/* PRODUITS */
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product-card{border-radius:14px;overflow:hidden;border:1px solid #E8EAF0;background:var(--white);transition:all .3s}
+.product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.product-img{height:150px;background:linear-gradient(135deg,#E8ECFD,#D0D8F8);display:flex;align-items:center;justify-content:center;font-size:40px}
+.product-img img{width:100%;height:100%;object-fit:cover}
+.product-body{padding:14px}
+.product-name{font-weight:600;font-size:14px;color:var(--black);margin-bottom:5px}
+.product-desc{font-size:12px;color:var(--gray);line-height:1.5;margin-bottom:10px}
+.product-price{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--blue-deep)}
+.product-price span{font-size:12px;color:var(--gray);font-weight:400;font-family:'DM Sans',sans-serif}
+/* PAGE HERO */
+.page-hero{background:linear-gradient(120deg,var(--blue-deep),#131680);padding:56px 36px;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 50%,rgba(184,137,42,.15),transparent 60%)}
+.page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.page-hero-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px}
+.page-hero-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--white);margin-bottom:12px}
+.page-hero-sub{font-size:15px;color:rgba(255,255,255,.65);max-width:480px;line-height:1.6}
+/* FILTERS */
+.filters-bar{background:var(--white);border-bottom:1px solid #E8EAF0;padding:18px 36px}
+.filters-inner{max-width:1280px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.filter-input{padding:9px 16px;border:1.5px solid #E0E2EA;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;min-width:200px}
+.filter-input:focus{border-color:var(--blue-mid)}
+.filter-select{padding:9px 16px;border:1.5px solid #E0E2EA;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;background:var(--white);cursor:pointer}
+.filter-btn{padding:9px 20px;background:var(--blue-deep);color:var(--white);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
+/* OFFRES */
+.offres-list{max-width:1280px;margin:0 auto;padding:36px;display:flex;flex-direction:column;gap:18px}
+.offre-card{background:var(--white);border:1px solid #E8EAF0;border-radius:16px;padding:24px 28px;display:flex;align-items:flex-start;gap:24px;transition:all .3s}
+.offre-card:hover{box-shadow:var(--shadow-lg);border-color:var(--blue-light);transform:translateX(4px)}
+.offre-card.expired{opacity:.7}
+.offre-icon{width:52px;height:52px;flex-shrink:0;background:var(--blue-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.offre-main{flex:1}
+.offre-tags{display:flex;gap:7px;margin-bottom:8px;flex-wrap:wrap}
+.tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.06em}
+.tag-blue{background:var(--blue-pale);color:var(--blue-mid)}
+.tag-gold{background:var(--gold-pale);color:var(--gold)}
+.tag-red{background:#FEE8E8;color:#C0392B}
+.tag-green{background:#E8F8EE;color:#1E8449}
+.offre-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--black);margin-bottom:7px}
+.offre-meta{font-size:13px;color:var(--gray);display:flex;gap:18px;flex-wrap:wrap}
+.offre-cta{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0}
+.btn-apply{padding:11px 22px;background:var(--blue-deep);color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn-apply:hover{background:var(--blue-mid)}
+.btn-apply.disabled{background:#ccc;cursor:not-allowed;pointer-events:none}
+.deadline{font-size:12px;color:var(--gray);text-align:right}
+/* FOOTER */
+.site-footer{background:var(--black);padding:52px 36px 26px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-top:14px;max-width:260px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.55);margin-bottom:9px;cursor:pointer;text-decoration:none}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.3)}
+/* ALERTS */
+.alert{padding:14px 18px;border-radius:10px;margin-bottom:18px;font-size:14px;border-left:4px solid}
+.alert-success{background:#E8F8EE;border-color:#1E8449;color:#1E5C30}
+.alert-error{background:#FEE8E8;border-color:#C0392B;color:#7B1E1E}
+.alert-info{background:var(--blue-pale);border-color:var(--blue-mid);color:var(--blue-deep)}
+/* FORMS */
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--black);margin-bottom:6px}
+.form-control{width:100%;padding:10px 14px;border:1.5px solid #E0E2EA;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;background:var(--white)}
+.form-control:focus{border-color:var(--blue-mid)}
+.form-error{font-size:12px;color:#C0392B;margin-top:4px}
+/* BUTTONS */
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;display:inline-block;text-decoration:none}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-blue{background:var(--blue-deep);color:var(--white)}
+.btn-blue:hover{background:var(--blue-mid)}
+.btn-outline-blue{background:transparent;border:1.5px solid var(--blue-deep);color:var(--blue-deep)}
+.btn-outline-blue:hover{background:var(--blue-pale)}
+.btn-sm{padding:7px 14px;font-size:13px}
+.btn-danger{background:#C0392B;color:var(--white)}
+/* BADGE */
+.badge{display:inline-block;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.06em}
+.badge-active{background:var(--blue-pale);color:var(--blue-mid)}
+.badge-green{background:#E8F8EE;color:#1E8449}
+.badge-red{background:#FEE8E8;color:#C0392B}
+.badge-gold{background:var(--gold-pale);color:var(--gold)}
+.badge-gray{background:#F0F2F5;color:var(--gray)}
+/* HERO CARDS */
+.hero-cards{position:relative;width:340px;height:340px}
+.hcard{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;backdrop-filter:blur(10px);padding:22px}
+.hcard.c1{top:0;right:0;width:240px}
+.hcard.c2{top:80px;left:0;width:200px}
+.hcard.c3{bottom:20px;right:10px;width:220px}
+.hc-icon{font-size:26px;margin-bottom:8px}
+.hc-title{font-size:12px;font-weight:600;color:var(--white);margin-bottom:4px}
+.hc-val{font-size:26px;font-weight:700;color:var(--gold-light);font-family:'Playfair Display',serif}
+.hc-label{font-size:11px;color:rgba(255,255,255,.45);margin-top:3px}
+/* CONTAINER */
+.container{max-width:1280px;margin:0 auto;padding:0 36px}
+/* PAGINATION */
+.pagination-wrap{display:flex;justify-content:center;padding:24px 0}
+.pagination-wrap .pagination{display:flex;gap:4px;list-style:none}
+.pagination-wrap .page-item .page-link{padding:7px 13px;border:1.5px solid #E0E2EA;border-radius:7px;font-size:14px;color:var(--black);text-decoration:none;transition:all .2s}
+.pagination-wrap .page-item.active .page-link{background:var(--blue-deep);border-color:var(--blue-deep);color:var(--white)}
+.pagination-wrap .page-item .page-link:hover{background:var(--blue-pale);border-color:var(--blue-mid);color:var(--blue-deep)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;flex-shrink:0}
+.hamburger span{width:22px;height:2px;background:var(--black);border-radius:2px;display:block;transition:all .3s}
+@media(max-width:900px){
+.g-mob{grid-template-columns:1fr!important;gap:28px!important}
+.g-mob-2{grid-template-columns:repeat(2,1fr)!important}
+.hero-inner{grid-template-columns:1fr}
+.hero-cards{display:none}
+.services-grid{grid-template-columns:repeat(2,1fr)}
+.news-grid{grid-template-columns:repeat(2,1fr)}
+.products-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr}
+.header-inner{padding:0 16px}
+.offre-card{flex-direction:column}
+.offre-cta{align-items:flex-start}
+.section{padding:52px 20px}
+.container{padding:0 20px}
+.page-hero{padding:40px 20px}
+.page-hero-title{font-size:30px}
+.section-title{font-size:28px}
+.offres-list{padding:24px 20px}
+.filters-bar{padding:14px 20px}
+}
+@media(max-width:600px){
+.site-nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--gold);flex-direction:column;padding:12px 16px;gap:4px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.site-nav.open{display:flex}
+.hamburger{display:flex}
+.services-grid,.news-grid,.products-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;gap:8px;text-align:center}
+.section{padding:36px 16px}
+.container{padding:0 16px}
+.page-hero{padding:30px 16px}
+.page-hero-title{font-size:24px}
+.page-hero-sub{font-size:13px}
+.section-title{font-size:22px}
+.section-sub{font-size:14px;margin-bottom:28px}
+.offres-list{padding:16px}
+.offre-card{gap:12px}
+.filters-bar{padding:12px 16px}
+.anniv-inner{gap:8px;flex-wrap:wrap;padding:0 12px}
+.anniv-text{font-size:11px;text-align:center}
+.filter-input{min-width:unset;width:100%}
+.nav-drop-group .dropdown-menu{position:static;box-shadow:none;border:none;border-radius:0;padding:0 0 0 12px;display:block}
+.nav-drop-group:hover .dropdown-menu{display:block}
+.g-mob{grid-template-columns:1fr!important;gap:24px!important}
+.g-mob-2{grid-template-columns:1fr!important;gap:16px!important}
+.flex-mob{flex-direction:column!important}
+.flex-mob>div:first-child{width:100%!important;min-width:unset!important;height:180px!important}
+.hide-mob{display:none!important}
+.mob-pad-sm{padding:0 16px!important}
+[style*="padding:0 36px"]{padding:0 16px!important}
+[style*="padding:72px 36px"]{padding:40px 16px!important}
+}
+</style>
+<style>
+/* ── Animations ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmerGold{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(184,137,42,.4)}60%{box-shadow:0 0 0 12px rgba(184,137,42,0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+
+/* ── Grid affiches ── */
+.bp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+@media(max-width:640px){.bp-grid{grid-template-columns:1fr 1fr;gap:14px}}
+@media(max-width:420px){.bp-grid{grid-template-columns:1fr;gap:14px}}
+
+/* ── Carte affiche ── */
+.bp-card{border-radius:18px;overflow:hidden;background:var(--white);border:1px solid #E8EAF0;cursor:pointer;transition:all .3s;position:relative}
+.bp-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(10,14,100,.14)}
+.bp-card:hover .bp-overlay{opacity:1}
+.bp-img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+.bp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,45,.75) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px}
+.bp-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--white);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.bp-footer{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F5}
+.bp-name{font-size:13px;font-weight:600;color:var(--blue-deep);line-height:1.3}
+
+/* ── Carte texte ── */
+.bp-text-card{border-radius:18px;background:var(--white);border:1px solid #E8EAF0;padding:26px;transition:all .3s}
+.bp-text-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(10,14,100,.1)}
+
+/* ── Modal ZenCard ── */
+.zc-modal-bg{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);align-items:center;justify-content:center}
+.zc-modal-box{background:var(--white);border-radius:24px;padding:48px 40px;max-width:440px;width:90%;text-align:center;box-shadow:0 32px 100px rgba(0,0,0,.3);position:relative;animation:scaleIn .25s cubic-bezier(.22,1,.36,1) both}
+
+/* ── Lightbox ── */
+.lb-bg{display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+.lb-img{max-width:600px;width:92%;max-height:88vh;border-radius:16px;object-fit:contain;box-shadow:0 32px 100px rgba(0,0,0,.5);animation:scaleIn .2s ease both}
+
+/* ── Filtre catégories ── */
+.cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;justify-content:center}
+.cat-btn{padding:8px 20px;border:2px solid #E0E2EA;border-radius:30px;font-size:13px;font-weight:600;background:var(--white);color:var(--gray);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.cat-btn.active,.cat-btn:hover{border-color:var(--gold);background:var(--gold);color:var(--white)}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-area">
+      <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="logo-name">Kapi Consult</span>
+    </a>
+    <nav class="site-nav">
+                                  <a href="#" class="nav-item ">Accueil</a>
+                                          <a href="#" class="nav-item ">À propos</a>
+                                          <a href="#" class="nav-item ">Nos activités</a>
+                                          <div class="nav-drop-group">
+            <a href="#" class="nav-item ">Nos solutions ▾</a>
+                        <div class="dropdown-menu">
+                                          <a href="#" class="dropdown-item ">Kapi board select</a>
+                                          <a href="#" class="dropdown-item ">Kapi data</a>
+                          </div>
+                      </div>
+                                          <a href="#" class="nav-item ">Nos produits</a>
+                                          <div class="nav-drop-group">
+            <a href="#" class="nav-item active">Publications ▾</a>
+                        <div class="dropdown-menu">
+                                          <a href="#" class="dropdown-item ">Actualités</a>
+                                          <a href="#" class="dropdown-item ">Blog</a>
+                                          <a href="#" class="dropdown-item active">Bons Plans</a>
+                                          <a href="#" class="dropdown-item ">FAQ</a>
+                          </div>
+                      </div>
+                                          <div class="nav-drop-group">
+            <a href="#" class="nav-item ">Carrière ▾</a>
+                        <div class="dropdown-menu">
+                                          <a href="#" class="dropdown-item ">Offres d&#039;emploi</a>
+                                          <a href="#" class="dropdown-item ">Candidature spontanée</a>
+                          </div>
+                      </div>
+                                          <a href="#" class="nav-item ">Contact</a>
+                  </nav>
+          <a href="#" class="header-cta">Mon Compte</a>
+        <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- BANNIERE 20 ANS -->
+<div class="anniv-banner">
+  <div class="anniv-confetti">
+    <span style="left:5%;animation-duration:18s;animation-delay:0s">🎊</span>
+    <span style="left:15%;animation-duration:22s;animation-delay:-4s">✨</span>
+    <span style="left:28%;animation-duration:16s;animation-delay:-8s">🎉</span>
+    <span style="left:42%;animation-duration:20s;animation-delay:-2s">⭐</span>
+    <span style="left:58%;animation-duration:24s;animation-delay:-10s">🎊</span>
+    <span style="left:72%;animation-duration:17s;animation-delay:-6s">✨</span>
+    <span style="left:85%;animation-duration:21s;animation-delay:-3s">🎉</span>
+  </div>
+  <div class="anniv-inner">
+    <div class="anniv-stars">
+      <span class="anniv-star">⭐</span>
+      <span class="anniv-star">⭐</span>
+      <span class="anniv-star">⭐</span>
+    </div>
+    <div class="anniv-badge">20 ANS</div>
+    <div class="anniv-text">Kapi Consult célèbre ses <strong>20 ans d'excellence</strong> au service des organisations d'Afrique de l'Ouest</div>
+    <div class="anniv-stars">
+      <span class="anniv-star">⭐</span>
+      <span class="anniv-star">⭐</span>
+      <span class="anniv-star">⭐</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  
+
+<section style="background-image:linear-gradient(135deg,rgba(10,14,100,0.88) 0%,rgba(8,10,45,0.94) 100%),url(storage/kapi/banner_articles.jpg);background-size:cover;background-position:center;padding:96px 0 80px;text-align:center;position:relative;overflow:hidden">
+  
+  <div style="position:absolute;top:-80px;right:5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,42,.12),transparent 65%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;left:3%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(80,100,240,.1),transparent 65%);pointer-events:none"></div>
+
+  <div class="container" style="position:relative;z-index:2">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;animation:fadeUp .5s ease both">Kapi Consult</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,50px);font-weight:700;color:var(--white);margin-bottom:14px;animation:fadeUp .6s ease .1s both">
+      Bons Plans <span style="background:linear-gradient(120deg,#F5D78E,#D4A017,#FFF0B0,#D4A017,#F5D78E);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerGold 4s linear infinite">&</span> ZenCard
+    </h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 40px;line-height:1.7;animation:fadeUp .6s ease .2s both">
+      Offres spéciales, promotions et avantages exclusifs sélectionnés pour vous.
+    </p>
+
+    
+    <div style="animation:fadeUp .6s ease .35s both">
+      <button onclick="openZencard()" style="display:inline-flex;align-items:center;gap:10px;padding:16px 38px;background:linear-gradient(135deg,var(--gold),#c9990f);color:var(--white);font-weight:700;font-size:15px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 24px rgba(184,137,42,.5);animation:pulseRing 3s ease-in-out 2s infinite;font-family:'DM Sans',sans-serif;letter-spacing:.04em;transition:all .3s" onmouseover="this.style.transform='translateY(-3px) scale(1.04)'" onmouseout="this.style.transform='none'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>
+        Recharger ma ZenCard
+      </button>
+    </div>
+
+    
+    <div style="display:flex;gap:32px;justify-content:center;margin-top:44px;flex-wrap:wrap;animation:fadeUp .6s ease .5s both">
+      <div style="text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white)">9</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:3px">Offres actives</div>
+      </div>
+      <div style="width:1px;height:40px;background:rgba(255,255,255,.12);align-self:center"></div>
+      <div style="text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold-light)">ZenCard</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:3px">Votre carte avantages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="zencard-modal" class="zc-modal-bg" onclick="if(event.target===this)closeZencard()">
+  <div class="zc-modal-box">
+    <button onclick="closeZencard()" style="position:absolute;top:16px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray)">✕</button>
+    <div style="width:72px;height:72px;background:linear-gradient(135deg,var(--gold),#c9990f);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:32px;box-shadow:0 8px 24px rgba(184,137,42,.3)">💳</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);margin-bottom:8px">Recharge ZenCard</h2>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:24px">Rechargez votre carte avantages en quelques clics.</p>
+    <div style="background:linear-gradient(135deg,#FFFBEA,#FFF3CC);border:1px solid #F0C040;border-radius:14px;padding:20px 24px;margin-bottom:24px">
+      <div style="font-size:28px;margin-bottom:10px">🚧</div>
+      <div style="font-size:16px;font-weight:700;color:#8B6914;margin-bottom:6px">Service bientôt disponible</div>
+      <div style="font-size:13px;color:#A07820;line-height:1.6">La recharge en ligne est en cours de déploiement. Contactez-nous pour toute urgence.</div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" style="padding:12px 28px;background:var(--blue-deep);color:var(--white);border-radius:10px;font-weight:600;font-size:14px;text-decoration:none">📞 Nous contacter</a>
+      <button onclick="closeZencard()" style="padding:12px 22px;background:#F0F2F5;color:var(--gray);border:none;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif">Fermer</button>
+    </div>
+  </div>
+</div>
+
+
+<section style="padding:72px 0;background:#F7F8FC">
+  <div class="container">
+
+    
+    <div style="text-align:center;margin-bottom:44px">
+      <span class="section-tag">Offres & Promotions</span>
+      <h2 class="section-title">Nos bons plans du moment</h2>
+    </div>
+
+    
+    
+        
+    
+    <div class="bp-grid" id="bp-grid">
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub2.jpg','ZenCard — Offre Spéciale')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub2.jpg" alt="ZenCard — Offre Spéciale">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Offre Spéciale</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.05s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub3.jpg','ZenCard — Promotion Exclusive')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub3.jpg" alt="ZenCard — Promotion Exclusive">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Promotion Exclusive</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.1s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub5.jpg','ZenCard — Bon Plan #5')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub5.jpg" alt="ZenCard — Bon Plan #5">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Bon Plan #5</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.15s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub6.jpg','ZenCard — Bon Plan #6')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub6.jpg" alt="ZenCard — Bon Plan #6">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Bon Plan #6</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.2s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub7.jpg','ZenCard — Bon Plan #7')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub7.jpg" alt="ZenCard — Bon Plan #7">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Bon Plan #7</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.25s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub5b.jpg','ZenCard — Édition Spéciale')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub5b.jpg" alt="ZenCard — Édition Spéciale">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Édition Spéciale</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.3s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_pub6b.jpg','ZenCard — Offre Limitée')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_pub6b.jpg" alt="ZenCard — Offre Limitée">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Offre Limitée</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="zencard" style="animation:fadeUp .5s ease 0.35s both">
+                
+        <div class="bp-card" onclick="openAffiche('storage/kapi/zencard_product.jpg','ZenCard — Le Produit')">
+          <span class="bp-badge">ZenCard</span>
+          <img class="bp-img" src="storage/kapi/zencard_product.jpg" alt="ZenCard — Le Produit">
+          <div class="bp-overlay">
+            <span style="color:var(--white);font-size:13px;font-weight:600">🔍 Agrandir</span>
+          </div>
+          <div class="bp-footer">
+            <span class="bp-name">ZenCard — Le Produit</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+              </div>
+            <div class="bp-item" data-cat="" style="animation:fadeUp .5s ease 0.4s both">
+                
+        <div class="bp-text-card">
+          <div style="width:44px;height:44px;background:var(--gold-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px">💡</div>
+          <span style="display:inline-block;background:var(--gold);color:var(--white);font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.08em;text-transform:uppercase">Bon Plan</span>
+          <h3 style="font-size:15px;font-weight:700;color:var(--blue-deep);margin-bottom:8px;line-height:1.4">Formation Gratuite : Maîtrisez Excel pour les RH</h3>
+          <p style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:16px">Kapi Consult vous offre un accès gratuit à sa formation en ligne &quot;Excel pour les professionnels RH&quot; pour tout abonnement...</p>
+          <a href="#" style="font-size:13px;color:var(--blue-mid);font-weight:700;text-decoration:none">Voir le détail →</a>
+        </div>
+              </div>
+          </div>
+
+    
+    
+      </div>
+</section>
+
+
+<div id="lb-modal" class="lb-bg" onclick="if(event.target===this)closeLb()">
+  <div style="position:relative;display:flex;flex-direction:column;align-items:center;max-width:640px;width:94%">
+    <button onclick="closeLb()" style="position:absolute;top:-44px;right:0;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);color:var(--white);font-size:18px;border-radius:50%;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)">✕</button>
+    <img id="lb-img" src="#" alt="" class="lb-img">
+    <div id="lb-titre" style="color:rgba(255,255,255,.8);margin-top:16px;font-size:14px;font-weight:600;text-align:center;background:rgba(0,0,0,.35);padding:8px 20px;border-radius:20px;backdrop-filter:blur(4px)"></div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-area">
+          <div class="logo-grid" style="width:34px;height:34px"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <span class="logo-name" style="color:var(--white);font-size:17px">Kapi Consult</span>
+        </a>
+        <p style="font-size:12px;font-weight:700;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;margin-bottom:6px">Nous développons vos métiers</p>
+        <p>Bureau d&#039;études et de conseil en management. Votre partenaire stratégique au Togo, Bénin, Burkina Faso et Niger.</p>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4>
+        <a href="#">À propos</a>
+        <a href="#">Nos Activités</a>
+        <a href="#">Actualités</a>
+        <a href="#">Nos Produits</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col"><h4>Recrutement</h4>
+        <a href="#">Offres d'emploi</a>
+        <a href="#">Candidature spontanée</a>
+        <a href="#">Mon espace candidat</a>              </div>
+      <div class="footer-col"><h4>Contact</h4>
+        <a>📍 Immeuble D&amp;D, Agoè BKS, Lomé, Togo</a>
+        <a href="tel:+22822518969">📞 +228 22 51 89 69</a>
+                <a href="tel:+22893170101">📞 +228 93 17 01 01</a>
+                <a href="mailto:info@kapiconsult.tg">✉️ info@kapiconsult.tg</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Kapi Consult. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>
+
+<script>function toggleNav(){document.querySelector('.site-nav').classList.toggle('open')}</script>
+<script>
+/* ── Zencard modal ── */
+function openZencard(){ document.getElementById('zencard-modal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeZencard(){ document.getElementById('zencard-modal').style.display='none'; document.body.style.overflow=''; }
+
+/* ── Lightbox ── */
+function openAffiche(src,titre){
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-titre').textContent = titre;
+  document.getElementById('lb-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){ document.getElementById('lb-modal').style.display='none'; document.body.style.overflow=''; }
+
+/* ── Filtre catégories ── */
+function filterCat(cat, btn){
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.bp-item').forEach(el => {
+    el.style.display = (cat === 'all' || el.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+/* ── Keyboard ── */
+document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeZencard(); closeLb(); } });
+</script>
+
+<!-- POPUP 20 ANS -->
+</body>
+
+<!-- Mirrored from kapiconsult.tg/bons-plans by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 May 2026 15:35:45 GMT -->
+</html>

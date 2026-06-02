@@ -1,0 +1,43 @@
+<div class="space-y-6">
+  <div>
+    <h1 class="text-3xl font-black text-gray-900 font-['Ubuntu'] tracking-tight">Messages</h1>
+    <p class="text-gray-500 font-medium mt-1">Consultez les demandes de contact reçues.</p>
+  </div>
+
+  <div *ngIf="isLoading" class="flex justify-center py-12">
+    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-[#036eb1]"></div>
+  </div>
+
+  <div *ngIf="!isLoading && messages.length === 0" class="bg-white p-12 rounded-[2.5rem] text-center border border-gray-100 shadow-sm">
+    <div class="w-20 h-20 bg-gray-50 rounded-3xl flex items-center justify-center text-gray-300 mx-auto mb-6">
+      <i class="fas fa-envelope-open text-3xl"></i>
+    </div>
+    <h3 class="text-xl font-bold text-gray-900 font-['Ubuntu']">Aucun message</h3>
+    <p class="text-gray-500 mt-2">Vous n'avez pas encore reçu de demandes de contact.</p>
+  </div>
+
+  <div *ngIf="!isLoading" class="grid grid-cols-1 gap-4">
+    <div *ngFor="let msg of messages" class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 hover:border-[#036eb1]/30 transition-colors group">
+      <div class="flex items-start justify-between mb-4">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-[#036eb1]/10 rounded-2xl flex items-center justify-center text-[#036eb1] font-bold uppercase">
+            {{ msg.name.substring(0, 2) }}
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900">{{ msg.name }}</h4>
+            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">{{ msg.email }}</p>
+          </div>
+        </div>
+        <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+          {{ msg.createdAt | date:'short' }}
+        </div>
+      </div>
+      <p class="text-gray-600 text-sm leading-relaxed bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
+        {{ msg.message }}
+      </p>
+      <div class="mt-4 flex justify-end space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+        <a [href]="'mailto:' + msg.email" class="text-xs font-black uppercase tracking-widest text-[#036eb1] hover:text-[#036eb1]/90">Répondre</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+{
+  "NAVBAR": {
+    "HOME": "Accueil",
+    "ENTREPRISES": "Entreprises",
+    "PROJETS": "Projets",
+    "SECTEURS": "Secteurs",
+    "ABOUT": "À propos",
+    "BLOG": "Blog",
+    "CONTACT": "Contact",
+    "BON_PLAN": "Bon Plan"
+  },
+  "HERO": {
+    "TITLE": "Accélérons la croissance des entreprises à fort potentiel",
+    "DESCRIPTION": "OSEOR SA est une holding avec des participations multiples, innovante et dynamique, engagée dans la croissance durable de ses filiales. Grâce à une gouvernance transparente, des indicateurs de performance fiables et des fonctions support centralisées, le groupe assure un pilotage efficace de ses activités.",
+    "BUTTON": "Découvrir nos services"
+  },
+  "STATS": {
+    "ENTREPRISES": "+100 entreprises accompagnées",
+    "PROJETS": "+50 projets financés",
+    "SECTEURS": "+100 sous secteurs couverts",
+    "MISSIONS": "+100 missions réalisées"
+  },
+  "SECTEURS": {
+    "TITLE": "Secteurs d’intervention",
+    "DESCRIPTION": "Nous intervenons dans des secteurs clés de l’économie avec une expertise adaptée à chaque environnement.",
+    "ENERGIE": "Énergie",
+    "INDUSTRIE": "Industrie",
+    "SERVICES": "Services"
+  },
+  "FOOTER": {
+    "DESCRIPTION": "OSEOR est une holding spécialisée en investissement et en ingénierie financière. Nous accompagnons les PME et start-up à fort potentiel dans la structuration, le financement et le développement de leurs activités.",
+    "QUICK_LINKS": "Liens utiles",
+    "LEGAL": "Légal",
+    "PRIVACY": "Politique de confidentialité",
+    "TERMS": "Conditions générales",
+    "MENTIONS": "Mentions légales",
+    "RIGHTS": "Tous droits réservés."
+  },
+  "COMMON": {
+    "SEE_DETAILS": "Voir détails",
+    "LOADING": "Chargement...",
+    "ERROR": "Une erreur est survenue."
+  }
+}
