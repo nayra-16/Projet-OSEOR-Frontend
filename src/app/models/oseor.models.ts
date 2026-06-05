@@ -17,6 +17,7 @@ export interface Entreprise {
   secteur: string;
   description: string;
   logoUrl: string;
+  officialSite?: string;
 }
 
 export interface Projet {

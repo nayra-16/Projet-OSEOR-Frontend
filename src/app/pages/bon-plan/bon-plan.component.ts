@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { TopbarComponent } from '../../components/topbar/topbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bon-plan',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, TopbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, TopbarComponent, FooterComponent, TranslateModule],
   templateUrl: './bon-plan.component.html',
   styleUrls: ['./bon-plan.component.scss']
 })
 export class BonPlanComponent {
+  constructor(public translate: TranslateService) {}
+
   /* ── Zencard modal ── */
   openZencard() {
     const modal = document.getElementById('zencard-modal');

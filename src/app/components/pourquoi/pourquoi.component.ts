@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pourquoi',
   standalone: true,
+  imports: [TranslateModule],
   template: `
     <section class="py-16 md:py-24 bg-[#f8fafc]">
       <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1e293b] mb-12 md:mb-20 font-['Ubuntu']">Pourquoi choisir OSEOR ?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1e293b] mb-12 md:mb-20 font-['Ubuntu']">
+          {{ 'POURQUOI.TITLE' | translate }}
+        </h2>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <!-- Image à gauche -->
@@ -21,24 +25,36 @@ import { Component } from '@angular/core';
               <div class="flex items-start space-x-4 md:space-x-8 group">
                 <div class="bg-oseor-blue text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform font-['Ubuntu']">1</div>
                 <div>
-                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">Approche sur mesure</h4>
-                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">Chaque entreprise bénéficie d'un accompagnement unique, adapté à ses besoins spécifiques et à ses ambitions de croissance.</p>
+                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM1_TITLE' | translate }}
+                  </h4>
+                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM1_DESC' | translate }}
+                  </p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-4 md:space-x-8 group">
                 <div class="bg-oseor-blue text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform font-['Ubuntu']">2</div>
                 <div>
-                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">Expertise multidisciplinaire</h4>
-                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">Nos équipes réunissent des compétences pointues en finance, stratégie et assistance technique pour une vision à 360°.</p>
+                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM2_TITLE' | translate }}
+                  </h4>
+                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM2_DESC' | translate }}
+                  </p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-4 md:space-x-8 group">
                 <div class="bg-oseor-blue text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform font-['Ubuntu']">3</div>
                 <div>
-                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">Réseau de partenaires</h4>
-                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">Accédez à un écosystème solide de partenaires stratégiques et financiers pour accélérer votre développement durable.</p>
+                  <h4 class="text-lg md:text-xl font-bold text-[#1e293b] mb-2 font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM3_TITLE' | translate }}
+                  </h4>
+                  <p class="text-gray-500 text-sm md:text-base leading-relaxed font-['Ubuntu']">
+                    {{ 'POURQUOI.ITEM3_DESC' | translate }}
+                  </p>
                 </div>
               </div>
             </div>

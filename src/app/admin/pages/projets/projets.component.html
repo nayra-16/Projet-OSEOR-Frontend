@@ -1,12 +1,14 @@
-<div class="space-y-6">
-  <div class="flex justify-between items-center">
+<div class="space-y-8 animate-fade-in">
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
     <div>
-      <h1 class="text-3xl font-black text-gray-900 font-['Ubuntu'] tracking-tight">Projets</h1>
-      <p class="text-gray-500 font-medium mt-1">Gérez le portfolio de projets accompagnés.</p>
+      <h1 class="text-3xl font-black text-slate-900 font-['Ubuntu'] tracking-tight">{{ 'ADMIN.PROJETS_TITLE' | translate }}</h1>
+      <p class="text-slate-500 mt-1 font-medium">{{ 'ADMIN.PROJETS_DESC' | translate }}</p>
     </div>
-    <button (click)="openModal()" class="bg-[#036eb1] hover:bg-[#036eb1]/90 text-white font-bold py-3 px-6 rounded-2xl shadow-lg shadow-[#036eb1]/20 transition-all flex items-center space-x-2">
-      <i class="fas fa-plus text-xs"></i>
-      <span>Nouveau Projet</span>
+    <button (click)="openModal()" 
+            class="inline-flex items-center justify-center space-x-2 bg-oseor-blue hover:bg-oseor-blue/90 text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs transition-all shadow-lg shadow-oseor-blue/20">
+      <i class="fas fa-plus"></i>
+      <span>{{ 'ADMIN.NEW_PROJECT' | translate }}</span>
     </button>
   </div>
 
@@ -59,12 +61,12 @@
       
       <form [formGroup]="projetForm" (ngSubmit)="onSubmit()" class="p-8 space-y-6 overflow-y-auto max-h-[70vh]">
         <div class="space-y-2">
-          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Titre du projet</label>
+          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">{{ 'ADMIN.TABLE_TITLE' | translate }}</label>
           <input type="text" formControlName="title" class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-[#036eb1] outline-none transition-all">
         </div>
 
         <div class="space-y-2">
-          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Catégorie</label>
+          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">{{ 'ADMIN.CATEGORY' | translate }}</label>
           <select formControlName="category" class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-[#036eb1] outline-none transition-all bg-white">
             <option value="Énergie">Énergie</option>
             <option value="Industrie">Industrie</option>
@@ -73,19 +75,19 @@
         </div>
         
         <div class="space-y-2">
-          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">URL de l'image</label>
+          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">{{ 'ADMIN.TABLE_ICON' | translate }}</label>
           <input type="text" formControlName="image" placeholder="assets/images/..." class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-[#036eb1] outline-none transition-all">
         </div>
 
         <div class="space-y-2">
-          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Description</label>
+          <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">{{ 'ADMIN.TABLE_DESC' | translate }}</label>
           <textarea formControlName="description" rows="4" class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-[#036eb1] outline-none transition-all"></textarea>
         </div>
 
         <div class="pt-4 flex space-x-4">
-          <button type="button" (click)="closeModal()" class="flex-1 bg-gray-100 text-gray-600 font-bold py-4 rounded-2xl hover:bg-gray-200 transition-all">Annuler</button>
+          <button type="button" (click)="closeModal()" class="flex-1 bg-gray-100 text-gray-600 font-bold py-4 rounded-2xl hover:bg-gray-200 transition-all">{{ 'ADMIN.CANCEL' | translate }}</button>
           <button type="submit" [disabled]="projetForm.invalid" class="flex-1 bg-[#036eb1] text-white font-bold py-4 rounded-2xl shadow-lg shadow-[#036eb1]/20 hover:bg-[#036eb1]/90 disabled:opacity-50 transition-all">
-            {{ isEditing ? 'Mettre à jour' : 'Enregistrer' }}
+            {{ isEditing ? ('ADMIN.UPDATE' | translate) : ('ADMIN.SAVE' | translate) }}
           </button>
         </div>
       </form>

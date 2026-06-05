@@ -1,18 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Entreprise } from '../../models/oseor.models';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-entreprises',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <section class="py-20 bg-gray-50/50" id="entreprises">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-['Ubuntu']">Entreprises accompagnées</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-['Ubuntu']">
+            {{ 'PARTICIPATIONS.TITLE' | translate }}
+          </h2>
           <p class="text-gray-600 text-lg leading-relaxed font-['Ubuntu']">
-            Nous accompagnons des entreprises ambitieuses et innovantes dans leurs projets de croissance.
+            {{ 'PARTICIPATIONS.DESCRIPTION' | translate }}
           </p>
         </div>
 
@@ -22,7 +25,7 @@ import { Entreprise } from '../../models/oseor.models';
                   (click)="filterBySecteur(cat)"
                   [ngClass]="selectedSecteur === cat ? 'bg-oseor-blue text-white shadow-lg scale-105' : 'bg-white text-gray-600 border border-gray-100 hover:border-oseor-blue hover:text-oseor-blue shadow-sm'"
                   class="px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform">
-            {{ cat }}
+            {{ getCategoryLabel(cat) }}
           </button>
         </div>
 
@@ -54,7 +57,17 @@ import { Entreprise } from '../../models/oseor.models';
               </div>
               
               <h3 class="text-xl font-bold text-gray-900 mb-4 font-['Ubuntu'] group-hover:text-oseor-blue transition-colors">{{ item.name }}</h3>
-              <p class="text-gray-500 text-sm leading-relaxed font-['Ubuntu'] line-clamp-2">{{ item.description }}</p>
+              <p class="text-gray-500 text-sm leading-relaxed font-['Ubuntu'] line-clamp-2 mb-6">{{ item.description }}</p>
+              
+              <!-- Bouton VOIR PLUS -->
+              <a *ngIf="item.officialSite" 
+                 [href]="item.officialSite" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center text-oseor-blue font-bold text-sm uppercase tracking-wider hover:text-[#ae151e] transition-colors group/btn">
+                Voir plus
+                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
             </div>
           </div>
 
@@ -87,32 +100,40 @@ export class EntreprisesComponent implements OnInit {
   
   entreprises: Entreprise[] = [
     { name: 'ZIH — ZENER International Holding', secteur: 'Énergie', description: 'Holding énergie du Groupe ZENER spécialisée dans les investissements, infrastructures de stockage, transport de combustible et solutions énergétiques diversifiées.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
-    { name: 'ZENER TOGO SA', secteur: 'Énergie', description: 'Filiale spécialisée dans l’importation, le stockage et la distribution des produits pétroliers, GPL, lubrifiants et accessoires du gaz.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
-    { name: 'POWER LINK SOLUTIONS SA', secteur: 'Énergie', description: 'Entreprise spécialisée dans le trading, le stockage et les infrastructures de gaz butane avec dépôt gazier en zone portuaire.', logoUrl: 'assets/images/partners/pls.png' } as Entreprise,
-    { name: 'POWER & GAS STORAGE SA', secteur: 'Énergie', description: 'Entreprise spécialisée dans le stockage de propane, terminaux gaziers et solutions énergétiques destinées au secteur industriel.', logoUrl: 'assets/images/partners/pgs.png' } as Entreprise,
-    { name: 'DIWA INDUSTRIES SA', secteur: 'Énergie', description: 'Filiale spécialisée dans la production et commercialisation d’emballages et contenants métalliques certifiée ISO 9001/2025.', logoUrl: 'assets/images/partners/diwa-indus.png' } as Entreprise,
-    { name: 'BLUEN SA', secteur: 'Énergie', description: 'Filiale de développement de solutions d’énergies renouvelables, solutions solaires et transition énergétique.', logoUrl: 'assets/images/partners/bluen.png' } as Entreprise,
+    { name: 'ZENER TOGO SA', secteur: 'Énergie', description: 'Filiale spécialisée dans l’importation, le stockage et la distribution des produits pétroliers, GPL, lubrifiants et accessoires du gaz.', logoUrl: 'assets/images/partners/zener .png', officialSite: 'https://zener.tg/' } as Entreprise,
+    { name: 'POWER LINK SOLUTIONS SA', secteur: 'Énergie', description: 'Entreprise spécialisée dans le trading, le stockage et les infrastructures de gaz butane avec dépôt gazier en zone portuaire.', logoUrl: 'assets/images/partners/pls.png', officialSite: 'https://pls.tg/' } as Entreprise,
+    { name: 'POWER & GAS STORAGE SA', secteur: 'Énergie', description: 'Entreprise spécialisée dans le stockage de propane, terminaux gaziers et solutions énergétiques destinées au secteur industriel.', logoUrl: 'assets/images/partners/pgs.png', officialSite: 'https://pgs.tg/' } as Entreprise,
+    { name: 'DIWA INDUSTRIES SA', secteur: 'Énergie', description: 'Filiale spécialisée dans la production et commercialisation d’emballages et contenants métalliques certifiée ISO 9001/2025.', logoUrl: 'assets/images/partners/diwa-indus.png', officialSite: 'https://diwaindustries.tg/' } as Entreprise,
+    { name: 'BLUEN SA', secteur: 'Énergie', description: 'Filiale de développement de solutions d’énergies renouvelables, solutions solaires et transition énergétique.', logoUrl: 'assets/images/partners/bluen.png', officialSite: 'https://bluen.tg/' } as Entreprise,
     { name: 'ZENER BENIN SA', secteur: 'Énergie', description: 'Filiale créée en 2023 spécialisée dans la distribution de produits pétroliers, GPL et développement énergétique au Bénin.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
     { name: 'ZEN GRUPO LDA', secteur: 'Énergie', description: 'Acteur dominant du secteur pétrolier et gazier en Guinée-Bissau spécialisé dans le stockage et la distribution énergétique.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
-    { name: 'KAPI CONSULT', secteur: 'Services', description: 'Cabinet spécialisé dans le conseil stratégique et l’assistance technique.', logoUrl: 'assets/images/partners/kapiconsult.png' } as Entreprise,
+    { name: 'KAPI CONSULT', secteur: 'Services', description: 'Cabinet spécialisé dans le conseil stratégique et l’assistance technique.', logoUrl: 'assets/images/partners/kapiconsult.png', officialSite: 'https://kapiconsult.tg/' } as Entreprise,
     { name: 'DIWA INTERNATIONAL', secteur: 'Services', description: 'Spécialiste des équipements automobiles et industriels.', logoUrl: 'assets/images/partners/diwa-indus.png' } as Entreprise,
-    { name: 'DIWA HOSPITALITY', secteur: 'Services', description: 'Groupe dédié au développement hôtelier et touristique moderne.', logoUrl: 'assets/images/partners/hospitality.png' } as Entreprise,
-    { name: 'DIWA PRODUCTS', secteur: 'Services', description: 'Entreprise spécialisée dans la restauration rapide et les produits locaux.', logoUrl: 'assets/images/partners/bonici.png' } as Entreprise,
-    { name: 'TRFS', secteur: 'Services', description: 'Référence dans le transport routier et la logistique au Togo.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
-    { name: '@TOGO', secteur: 'Services', description: 'Entreprise innovante spécialisée dans les solutions digitales et la fintech.', logoUrl: 'assets/images/partners/attogo.png' } as Entreprise,
-    { name: 'DIWA INDUSTRIES', secteur: 'Industrie', description: 'Spécialiste de l’emballage industriel et du stockage énergétique.', logoUrl: 'assets/images/partners/diwa-indus.png' } as Entreprise,
-    { name: 'JCEMGROUP TOGO', secteur: 'Industrie', description: 'Expert en béton prêt à l’emploi et solutions BTP modernes.', logoUrl: 'assets/images/partners/jcem.png' } as Entreprise,
-    { name: 'DABA', secteur: 'Industrie', description: 'Entreprise agro-industrielle spécialisée dans la transformation de produits d’élevage.', logoUrl: 'assets/images/partners/daba.png' } as Entreprise
+    { name: 'BONICI', secteur: 'Industrie', description: 'Entreprise spécialisée dans la restauration rapide et les produits locaux.', logoUrl: 'assets/images/partners/bonici.png', officialSite: 'https://bonici.africa/' } as Entreprise,
+    { name: 'TRFS', secteur: 'Services', description: 'Référence dans le transport routier et la logistique au Togo.', logoUrl: 'assets/images/partners/trfs.png', officialSite: 'https://trfs.africa/' } as Entreprise,
+    { name: '@TOGO', secteur: 'Industrie', description: 'Entreprise innovante spécialisée dans les solutions digitales et la fintech.', logoUrl: 'assets/images/partners/attogo.png', officialSite: 'https://arobase.tg/' } as Entreprise,
+    { name: 'DIWA INDUSTRIES', secteur: 'Industrie', description: 'Spécialiste de l’emballage industriel et du stockage énergétique.', logoUrl: 'assets/images/partners/diwa-indus.png', officialSite: 'https://diwaindustries.tg/' } as Entreprise,
+    { name: 'JCEMGROUP TOGO', secteur: 'Industrie', description: 'Expert en béton prêt à l’emploi et solutions BTP modernes.', logoUrl: 'assets/images/partners/jcem.png', officialSite: 'https://jcem.tg/' } as Entreprise,
+    { name: 'DABA', secteur: 'Industrie', description: 'Entreprise agro-industrielle spécialisée dans la transformation de produits d’élevage.', logoUrl: 'assets/images/partners/daba.png', officialSite: 'https://daba.tg/' } as Entreprise
   ];
 
   filteredEntreprises: Entreprise[] = [];
-  categories: string[] = ['Tous', 'Énergie', 'Industrie', 'Services'];
+  categories: string[] = ['Tous', 'Énergie', 'Services'];
   selectedSecteur: string = 'Tous';
   loading: boolean = false;
   error: string | null = null;
   isFirstHalf = true;
+  
+  constructor(private translate: TranslateService) {}
 
-  constructor() {}
+  getCategoryLabel(cat: string): string {
+    const map: { [key: string]: string } = {
+      'Tous': 'PARTICIPATIONS.FILTERS.ALL',
+      'Énergie': 'PARTICIPATIONS.FILTERS.ENERGY',
+      'Services': 'PARTICIPATIONS.FILTERS.SERVICES'
+    };
+    return this.translate.instant(map[cat] || cat);
+  }
 
   ngOnInit(): void {
     this.filterBySecteur('Tous');

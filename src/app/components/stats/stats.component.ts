@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, OnDestroy } fr
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Stat } from '../../models/oseor.models';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-stats',
@@ -22,9 +22,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         </div>
 
         <div *ngIf="!isLoading && !error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-0">
-          <div *ngFor="let stat of stats; let last = last" 
+          <div *ngFor="let stat of stats; let i = index; let last = last" 
                class="p-8 text-center group relative flex flex-col items-center justify-center transition-all duration-300 hover:bg-gray-50/50 rounded-2xl" 
-               data-aos="fade-up">
+               data-aos="fade-up"
+               [attr.data-aos-delay]="i * 100">
             <!-- Icon with background -->
             <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 border border-gray-100 group-hover:bg-oseor-blue group-hover:text-white transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-sm">
               <i [class]="stat.icon" class="text-3xl text-gray-700 group-hover:text-white transition-colors"></i>
@@ -39,7 +40,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             <div class="relative pt-4 px-4">
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-oseor-red group-hover:w-16 transition-all duration-500 rounded-full"></div>
               <p class="text-xs font-black uppercase tracking-[0.15em] text-oseor-blue font-['Ubuntu']">
-                {{ getStatLabel(stat) }}
+                {{ getStatLabel(stat) | translate }}
               </p>
             </div>
             
@@ -62,8 +63,7 @@ export class StatsComponent implements OnInit, AfterViewInit, OnDestroy {
   private isVisible = false;
 
   constructor(
-    private apiService: ApiService,
-    private translate: TranslateService
+    private apiService: ApiService
   ) {}
 
   getStatLabel(stat: any): string {
@@ -76,7 +76,7 @@ export class StatsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     for (const [key, translationKey] of Object.entries(labelMap)) {
       if (stat.label.toLowerCase().includes(key)) {
-        return this.translate.instant(translationKey);
+        return translationKey;
       }
     }
     return stat.label;

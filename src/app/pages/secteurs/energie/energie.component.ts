@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TopbarComponent } from '../../../components/topbar/topbar.component';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 export interface EnergyCompany {
   id: 'zih' | 'zener_togo' | 'pls' | 'pgs' | 'diwa' | 'bluen' | 'zener_benin' | 'zen_grupo';
@@ -16,7 +17,7 @@ export interface EnergyCompany {
 @Component({
   selector: 'app-energie',
   standalone: true,
-  imports: [CommonModule, RouterModule, TopbarComponent, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, TopbarComponent, NavbarComponent, FooterComponent, TranslateModule],
   styles: [
     `
       @keyframes fadeIn {
@@ -40,14 +41,14 @@ export interface EnergyCompany {
                style="background-image: linear-gradient(rgba(3, 110, 177, 0.85), rgba(3, 110, 177, 0.7)), url('assets/images/sectors/energie/energie-1.png')">
         <div class="container mx-auto px-6 relative z-10 text-center text-white">
           <h1 class="text-4xl md:text-6xl font-black font-['Ubuntu'] uppercase tracking-widest mb-6" data-aos="fade-down">
-            Secteur Énergie
+            {{ 'SECTEURS.ENERGY_PAGE.TITLE' | translate }}
           </h1>
           <div class="w-24 h-1.5 bg-[#ae151e] mx-auto mb-8"></div>
           <p class="text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-10 opacity-90" data-aos="fade-up">
-            OSEOR soutient les acteurs majeurs de l'énergie pour garantir une transition durable et une souveraineté énergétique régionale.
+            {{ 'SECTEURS.ENERGY_PAGE.DESC' | translate }}
           </p>
           <a routerLink="/" fragment="contact" class="inline-block bg-[#ae151e] hover:bg-[#8e1118] text-white px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:-translate-y-1">
-            Parler d'un projet
+            {{ 'CTA.BUTTON' | translate }}
           </a>
         </div>
       </section>
@@ -57,8 +58,8 @@ export interface EnergyCompany {
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div class="max-w-2xl">
-              <h2 class="text-[#036eb1] text-sm font-black uppercase tracking-[0.3em] mb-4">Portefeuille Corporate</h2>
-              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 font-['Ubuntu']">Entreprises du Secteur</h3>
+              <h2 class="text-[#036eb1] text-sm font-black uppercase tracking-[0.3em] mb-4">{{ 'SECTEURS.ENERGY_PAGE.PORTFOLIO' | translate }}</h2>
+              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 font-['Ubuntu']">{{ 'SECTEURS.ENERGY_PAGE.COMPANIES' | translate }}</h3>
             </div>
             <div class="h-1 bg-gray-100 flex-1 ml-10 hidden md:block mb-4"></div>
           </div>
@@ -90,7 +91,7 @@ export interface EnergyCompany {
                     <div class="space-y-6">
                       <div>
                         <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Brève présentation
+                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.BRIEF' | translate }}
                         </h5>
                         <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-['Ubuntu']">
                           <p>Zener International Holding (ZIH) est la holding ENERGIE du Groupe ZENER. C’est une société à 100% capitaux privés détenus par des investisseurs togolais.</p>
@@ -102,14 +103,14 @@ export interface EnergyCompany {
 
                       <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                         <h5 class="text-[#036eb1] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                          <i class="fas fa-chart-line mr-3"></i> DONNÉES-CLÉS
+                          <i class="fas fa-chart-line mr-3"></i> {{ 'SECTEURS.ENERGY_PAGE.KEY_DATA' | translate }}
                         </h5>
                         <ul class="space-y-3 text-sm text-gray-700 font-['Ubuntu']">
-                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">Forme juridique:</span> <span>Société Anonyme avec Conseil d’Administration</span></li>
-                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">Siège social:</span> <span>Lomé (Togo)</span></li>
-                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">Secteurs cibles:</span> <span>Gaz, Pétrole, Solaire, Electricité, Eolien, Hydrogène</span></li>
-                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">Présence géo:</span> <span>Afrique de l’Ouest et Centrale (Togo, Bénin, Guinée Bissau)</span></li>
-                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">Pays cibles:</span> <span>Côte d’Ivoire, Bénin, Burkina Faso, Cap vert, Niger, RDC, Tchad</span></li>
+                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.FORM' | translate }}:</span> <span>Société Anonyme avec Conseil d’Administration</span></li>
+                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.HEADQUARTERS' | translate }}:</span> <span>Lomé (Togo)</span></li>
+                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.TARGET_SECTORS' | translate }}:</span> <span>Gaz, Pétrole, Solaire, Electricité, Eolien, Hydrogène</span></li>
+                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.GEO_PRESENCE' | translate }}:</span> <span>Afrique de l’Ouest et Centrale (Togo, Bénin, Guinée Bissau)</span></li>
+                          <li class="flex items-start"><span class="font-bold min-w-[140px] text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.TARGET_COUNTRIES' | translate }}:</span> <span>Côte d’Ivoire, Bénin, Burkina Faso, Cap vert, Niger, RDC, Tchad</span></li>
                         </ul>
                       </div>
                     </div>
@@ -144,7 +145,7 @@ export interface EnergyCompany {
                     <div class="space-y-6">
                       <div>
                         <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation
+                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.BRIEF' | translate }}
                         </h5>
                         <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-['Ubuntu']">
                           <p>POWER LINK SOLUTIONS SA est une société spécialisée dans le trading et le stockage de gaz butane au Togo. Elle opère un dépôt gazier de plus de 5300 m3 situé en zone portuaire et relié au quai pétrolier de Lomé par un pipeline privé.</p>
@@ -159,7 +160,7 @@ export interface EnergyCompany {
                      <div class="space-y-6">
                        <div>
                          <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                           <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Activité principale de PGS
+                           <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.ACTIVITY' | translate }}
                          </h5>
                          <p class="text-gray-600 text-sm leading-relaxed mb-4 font-['Ubuntu']">
                            Société spécialisée dans l’importation, le stockage et la distribution du propane et les autres produits pétroliers et dérivés.
@@ -174,7 +175,7 @@ export interface EnergyCompany {
 
                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                          <h5 class="text-[#036eb1] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                           <i class="fas fa-warehouse mr-3"></i> Infrastructures du dépôt
+                           <i class="fas fa-warehouse mr-3"></i> {{ 'SECTEURS.ENERGY_PAGE.INFRASTRUCTURE' | translate }}
                          </h5>
                          <ul class="space-y-3 text-sm text-gray-700 font-['Ubuntu']">
                            <li class="flex items-start"><i class="fas fa-caret-right text-oseor-blue mt-1 mr-3"></i> <span>Construction sur le site d'un stockage exclusivement dédié pour le propane de capacité d’environ 9 600 m3 (16 cuves de 600m3 chacune)</span></li>
@@ -193,7 +194,7 @@ export interface EnergyCompany {
                      <div class="space-y-6">
                        <div>
                          <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                           <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation
+                           <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.BRIEF' | translate }}
                          </h5>
                          <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-['Ubuntu']">
                            <p>DIWA Industries est une société togolaise spécialisée dans les solutions de mobilité. A ce titre, elle couvre les secteurs de l’automobile, de la tribologie et des équipements industriels et technologiques.</p>
@@ -210,7 +211,7 @@ export interface EnergyCompany {
                       <div class="space-y-6">
                         <div>
                           <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation
+                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.BRIEF' | translate }}
                           </h5>
                           <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-['Ubuntu']">
                             <p>Bluen SA est une filiale de développement de solutions d’énergies renouvelables et transition énergétique : solutions solaires résidentielles, industrielles et centrales gas to power. Elle explore également les opportunités dans les solutions éoliennes et hydrogène.</p>
@@ -224,7 +225,7 @@ export interface EnergyCompany {
                       <div class="space-y-8">
                         <div>
                           <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation
+                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.ENERGY_PAGE.BRIEF' | translate }}
                           </h5>
                           <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-['Ubuntu']">
                             <p>Filiale installée au Benin en 2023, ZENER BENIN investit dans la distribution de produits blancs et GPL, HFO, lubrifiants, etc.</p>
@@ -236,13 +237,13 @@ export interface EnergyCompany {
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <h5 class="text-[#036eb1] font-black text-xs uppercase tracking-widest mb-4 flex items-center">
-                              <i class="fas fa-info-circle mr-3"></i> Données clés
+                              <i class="fas fa-info-circle mr-3"></i> {{ 'SECTEURS.ENERGY_PAGE.KEY_DATA' | translate }}
                             </h5>
                             <ul class="space-y-2 text-sm text-gray-700 font-['Ubuntu']">
-                              <li><span class="font-bold text-oseor-blue">Forme Juridique :</span> SA</li>
+                              <li><span class="font-bold text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.FORM' | translate }} :</span> SA</li>
                               <li><span class="font-bold text-oseor-blue">Année de création :</span> 2023</li>
                               <li><span class="font-bold text-oseor-blue">Capital :</span> 300 millions</li>
-                              <li><span class="font-bold text-oseor-blue">Siège social :</span> Cotonou</li>
+                              <li><span class="font-bold text-oseor-blue">{{ 'SECTEURS.ENERGY_PAGE.HEADQUARTERS' | translate }} :</span> Cotonou</li>
                               <li><span class="font-bold text-oseor-blue">Recettes 2024 :</span> 636 millions</li>
                               <li><span class="font-bold text-oseor-blue">Résultat net 2024 :</span> -23 millions</li>
                             </ul>
@@ -271,14 +272,14 @@ export interface EnergyCompany {
                      target="_blank" 
                      rel="noopener noreferrer" 
                      class="mt-8 text-[#036eb1] font-bold text-xs uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-all cursor-pointer">
-                    VOIR PLUS →
+                    {{ 'SECTEURS.ENERGY_PAGE.SEE_MORE' | translate }} →
                   </a>
                 </ng-container>
 
                 <button *ngIf="item.id !== 'zener_togo'"
                         (click)="item.isExpandable ? toggleCard(item.id) : null" 
                         class="mt-8 text-[#036eb1] font-bold text-xs uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-all">
-                  {{ item.isExpandable && expandedCardId === item.id ? 'Voir moins' : 'Voir plus' }} 
+                  {{ item.isExpandable && expandedCardId === item.id ? ('SECTEURS.ENERGY_PAGE.SEE_LESS' | translate) : ('SECTEURS.ENERGY_PAGE.SEE_MORE' | translate) }} 
                   <i class="fas ml-2 text-[10px]" [class.fa-arrow-right]="!item.isExpandable || expandedCardId !== item.id" [class.fa-chevron-up]="item.isExpandable && expandedCardId === item.id"></i>
                 </button>
               </div>
@@ -291,9 +292,9 @@ export interface EnergyCompany {
       <section class="py-20 bg-[#036eb1] relative overflow-hidden text-white text-center">
         <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
         <div class="container mx-auto px-6 relative z-10">
-          <h2 class="text-3xl md:text-5xl font-black font-['Ubuntu'] mb-10">Vous avez un projet dans ce secteur ?</h2>
+          <h2 class="text-3xl md:text-5xl font-black font-['Ubuntu'] mb-10">{{ 'CTA.TITLE' | translate }}</h2>
           <a routerLink="/" fragment="contact" class="inline-block bg-[#ae151e] hover:bg-[#8e1118] text-white px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95">
-            Contactez-nous
+            {{ 'CTA.BUTTON' | translate }}
           </a>
         </div>
       </section>

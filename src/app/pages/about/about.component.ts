@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { TopbarComponent } from '../../components/topbar/topbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, TopbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, TopbarComponent, FooterComponent, TranslateModule],
   template: `
     <header class="fixed top-0 left-0 w-full z-[1000]">
       <app-topbar></app-topbar>
@@ -21,28 +22,29 @@ import { FooterComponent } from '../../components/footer/footer.component';
           <!-- Image -->
           <div data-aos="fade-right" class="relative group h-full min-h-[400px]">
             <div class="absolute -inset-4 bg-oseor-blue/5 rounded-2xl -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
-            <img [src]="'assets/images/about/about.jpg'" alt="À propos d'OSEOR" class="relative w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
+            <img [src]="'assets/images/about/about.jpg'" [alt]="'ABOUT_PAGE.BADGE' | translate" class="relative w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
           </div>
 
           <!-- Texte -->
           <div data-aos="fade-left" class="max-w-xl space-y-8">
             <div class="space-y-4">
-              <h1 class="text-oseor-blue font-bold text-lg uppercase tracking-widest font-['Ubuntu']">À propos d’OSEOR</h1>
+              <h1 class="text-oseor-blue font-bold text-lg uppercase tracking-widest font-['Ubuntu'] mt-6 md:mt-8">
+                {{ 'ABOUT_PAGE.BADGE' | translate }}
+              </h1>
               <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-['Ubuntu']">
-                Une vision stratégique au service de la croissance
+                {{ 'ABOUT_PAGE.TITLE' | translate }}
               </h2>
             </div>
             
             <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                Fondée en 2015, OSEOR accompagne le développement de groupes d’entreprises à travers la prise de participation dans des sociétés à fort potentiel.
+                {{ 'ABOUT_PAGE.P1' | translate }}
               </p>
               <p>
-                Aujourd’hui, l’entreprise compte 15 sociétés partenaires, illustrant la solidité de son positionnement et l’étendue de son engagement.
+                {{ 'ABOUT_PAGE.P2' | translate }}
               </p>
               <p>
-                Devenue Société Anonyme (SA) en 2020–2021, OSEOR a renforcé sa crédibilité et sa capacité d’action. 
-                Son siège social est situé à Lomé, Agoènyivé, BKS 1, immeuble D&D.
+                {{ 'ABOUT_PAGE.P3' | translate }}
               </p>
             </div>
           </div>
@@ -51,13 +53,15 @@ import { FooterComponent } from '../../components/footer/footer.component';
         <!-- Section Gouvernance -->
         <div class="max-w-3xl mx-auto text-center mb-20 md:mb-32">
           <div data-aos="fade-up" class="space-y-8">
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 font-['Ubuntu']">Une gouvernance structurée</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 font-['Ubuntu']">
+              {{ 'ABOUT_PAGE.GOV_TITLE' | translate }}
+            </h3>
             <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                Un conseil d’administration, présidé par Monsieur <span class="font-bold text-gray-900 underline decoration-oseor-red/30">DAOU AKLESSO Yérima</span>, définit les grandes orientations stratégiques.
+                {{ 'ABOUT_PAGE.GOV_P1' | translate }}
               </p>
               <p>
-                La direction générale est assurée par Monsieur <span class="font-bold text-gray-900 underline decoration-oseor-red/30">Pascal PAMASSI</span>, qui pilote le développement et la performance de l’entreprise.
+                {{ 'ABOUT_PAGE.GOV_P2' | translate }}
               </p>
             </div>
           </div>

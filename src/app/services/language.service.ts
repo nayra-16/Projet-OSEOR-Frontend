@@ -17,9 +17,9 @@ export class LanguageService {
     
     // 2. Check browser language if no saved lang
     const browserLang = this.translate.getBrowserLang();
-    const defaultLang = savedLang || (browserLang?.match(/en|fr/) ? browserLang : 'fr');
+    const defaultLang = savedLang || (browserLang?.match(/en|fr|pt/) ? browserLang : 'fr');
 
-    this.translate.addLangs(['fr', 'en']);
+    this.translate.addLangs(['fr', 'en', 'pt']);
     this.translate.setDefaultLang('fr');
     this.useLanguage(defaultLang);
   }

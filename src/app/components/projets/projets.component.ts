@@ -2,18 +2,21 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Projet } from '../../models/oseor.models';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projets',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <section class="py-16 bg-white" id="projets">
       <div class="container mx-auto px-4 max-w-[1100px]">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-['Ubuntu']">Projets accompagnés</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-['Ubuntu']">
+            {{ 'PROJETS.TITLE' | translate }}
+          </h2>
           <p class="text-gray-600 text-[11px] md:text-sm font-['Ubuntu'] whitespace-nowrap text-center leading-none">
-            Découvrez quelques projets que nous avons accompagnés dans leur structuration et leur financement.
+            {{ 'PROJETS.DESCRIPTION' | translate }}
           </p>
         </div>
 
@@ -44,9 +47,11 @@ import { Projet } from '../../models/oseor.models';
               
               <!-- Contenu & Bouton (Bas) -->
               <div class="p-5 text-center flex flex-col items-center">
-                <h3 class="text-[15px] font-bold text-gray-900 font-['Ubuntu'] mb-4 line-clamp-1">{{ item.title }}</h3>
+                <h3 class="text-[15px] font-bold text-gray-900 font-['Ubuntu'] mb-4 line-clamp-1">
+                  {{ getProjectTitle(item.title) }}
+                </h3>
                 <button class="w-full bg-oseor-blue text-white py-2.5 rounded-[6px] text-[12px] font-bold uppercase tracking-widest hover:bg-oseor-blue/90 transition-all font-['Ubuntu']">
-                  Voir détails
+                  {{ 'COMMON.SEE_DETAILS' | translate }}
                 </button>
               </div>
             </div>
@@ -83,7 +88,19 @@ export class ProjetsComponent implements OnInit {
   error: string | null = null;
   isFirstHalf = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private translate: TranslateService
+  ) {}
+
+  getProjectTitle(title: string): string {
+    const titleMap: { [key: string]: string } = {
+      'Centrale Solaire Blitta': 'PROJETS.P1_TITLE',
+      'Complexe Industriel Kara': 'PROJETS.P2_TITLE',
+      'Pont de l\'Émergence': 'PROJETS.P3_TITLE'
+    };
+    return this.translate.instant(titleMap[title] || title);
+  }
 
   getImagePath(title: string): string {
     const images: { [key: string]: string } = {

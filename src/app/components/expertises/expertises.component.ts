@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Service } from '../../models/oseor.models';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-expertises',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <section class="relative py-12 md:py-16 bg-[#036eb1]">
       <!-- Badge rouge rectangulaire centré (Totalement visible) -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 z-20">
         <div class="bg-[#ae151e] text-white px-7 py-2 shadow-md">
           <h2 class="text-xl md:text-2xl font-bold text-center font-['Ubuntu'] whitespace-nowrap leading-none">
-            Nos expertises
+            {{ 'EXPERTISES.TITLE' | translate }}
           </h2>
         </div>
       </div>
@@ -46,7 +47,7 @@ import { Service } from '../../models/oseor.models';
             <!-- Bandeau blanc avec titre en bas -->
             <div class="bg-white py-4 px-2 text-center border-t border-gray-50">
               <h3 class="text-[14px] font-bold text-gray-900 font-['Ubuntu'] leading-tight">
-                {{ item.title }}
+                {{ getExpertiseTitle(item.title) }}
               </h3>
             </div>
           </div>
@@ -60,7 +61,20 @@ export class ExpertisesComponent implements OnInit {
   isLoading = true;
   error: string | null = null;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private translate: TranslateService
+  ) {}
+
+  getExpertiseTitle(title: string): string {
+    const titleMap: { [key: string]: string } = {
+      'Investissements Stratégiques': 'EXPERTISES.STRATEGIC',
+      'Ingénierie financière': 'EXPERTISES.FINANCIAL',
+      'Gouvernance & Performance': 'EXPERTISES.GOVERNANCE',
+      'Digitalisation & Influence': 'EXPERTISES.DIGITAL'
+    };
+    return this.translate.instant(titleMap[title] || title);
+  }
 
   getImagePath(title: string): string {
     const images: { [key: string]: string } = {

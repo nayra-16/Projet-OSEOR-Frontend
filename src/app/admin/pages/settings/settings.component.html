@@ -1,32 +1,41 @@
-<div class="space-y-6">
-  <div>
-    <h1 class="text-3xl font-black text-gray-900 font-['Ubuntu'] tracking-tight">Paramètres</h1>
-    <p class="text-gray-500 font-medium mt-1">Gérez votre profil et les configurations système.</p>
+<div class="space-y-8 animate-fade-in">
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-black text-slate-900 font-['Ubuntu'] tracking-tight">{{ 'ADMIN.SETTINGS_TITLE' | translate }}</h1>
+      <p class="text-slate-500 mt-1 font-medium">{{ 'ADMIN.SETTINGS_DESC' | translate }}</p>
+    </div>
   </div>
 
-  <div class="max-w-2xl bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden">
-    <div class="p-8 space-y-8">
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-gray-900 font-['Ubuntu'] flex items-center">
-          <i class="fas fa-user-circle text-[#036eb1] mr-3"></i>
-          Profil Administrateur
-        </h3>
-        <div class="grid grid-cols-1 gap-6">
-          <div class="space-y-2">
-            <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Email</label>
-            <input type="email" value="admin@oseor.tg" disabled class="w-full bg-gray-50 border border-gray-100 p-4 rounded-xl text-gray-500 outline-none cursor-not-allowed">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2 space-y-6">
+      <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-8 font-['Ubuntu']">{{ 'ADMIN.PROFILE' | translate }}</h2>
+        
+        <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Nom complet</label>
+              <input type="text" formControlName="name" class="w-full border border-slate-200 p-4 rounded-xl focus:ring-4 focus:ring-oseor-blue/5 focus:border-oseor-blue outline-none transition-all">
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Email</label>
+              <input type="email" formControlName="email" class="w-full border border-slate-200 p-4 rounded-xl focus:ring-4 focus:ring-oseor-blue/5 focus:border-oseor-blue outline-none transition-all">
+            </div>
           </div>
-          <div class="space-y-2">
-            <label class="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Nouveau mot de passe</label>
-            <input type="password" placeholder="••••••••" class="w-full bg-white border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-[#036eb1] focus:border-transparent outline-none transition-all">
+          
+          <div class="space-y-2 pt-4 border-t border-slate-50">
+            <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">{{ 'ADMIN.NEW_PASSWORD' | translate }}</label>
+            <input type="password" formControlName="newPassword" class="w-full border border-slate-200 p-4 rounded-xl focus:ring-4 focus:ring-oseor-blue/5 focus:border-oseor-blue outline-none transition-all" placeholder="••••••••">
           </div>
-        </div>
-      </div>
 
-      <div class="pt-8 border-t border-gray-50 flex justify-end">
-        <button class="bg-[#036eb1] hover:bg-[#036eb1]/90 text-white font-bold py-3 px-8 rounded-2xl shadow-lg shadow-[#036eb1]/20 transition-all transform active:scale-[0.98]">
-          Sauvegarder les modifications
-        </button>
+          <div class="flex justify-end pt-4">
+            <button type="submit" 
+                    class="bg-oseor-blue hover:bg-oseor-blue/90 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all shadow-lg shadow-oseor-blue/20">
+              {{ 'ADMIN.SAVE_CHANGES' | translate }}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

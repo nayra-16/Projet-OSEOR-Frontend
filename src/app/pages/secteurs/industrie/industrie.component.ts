@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { TopbarComponent } from '../../../components/topbar/topbar.component';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-industrie',
   standalone: true,
-  imports: [CommonModule, RouterModule, TopbarComponent, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, TopbarComponent, NavbarComponent, FooterComponent, TranslateModule],
   styles: [
     `
       @keyframes fadeIn {
@@ -32,14 +33,14 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                style="background-image: linear-gradient(rgba(3, 110, 177, 0.85), rgba(3, 110, 177, 0.7)), url('assets/images/sectors/industrie/industrie-4.png')">
         <div class="container mx-auto px-6 relative z-10 text-center text-white">
           <h1 class="text-4xl md:text-6xl font-black font-['Ubuntu'] uppercase tracking-widest mb-6" data-aos="fade-down">
-            Secteur Industrie
+            {{ 'SECTEURS.INDUSTRY_PAGE.TITLE' | translate }}
           </h1>
           <div class="w-24 h-1.5 bg-[#ae151e] mx-auto mb-8"></div>
           <p class="text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-10 opacity-90" data-aos="fade-up">
-            L'industrie au cœur de notre stratégie pour bâtir une économie forte, résiliente et tournée vers l'avenir.
+            {{ 'SECTEURS.INDUSTRY_PAGE.DESC' | translate }}
           </p>
           <a routerLink="/" fragment="contact" class="inline-block bg-[#ae151e] hover:bg-[#8e1118] text-white px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:-translate-y-1">
-            Parler d'un projet
+            {{ 'CTA.BUTTON' | translate }}
           </a>
         </div>
       </section>
@@ -49,8 +50,8 @@ import { FooterComponent } from '../../../components/footer/footer.component';
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div class="max-w-2xl">
-              <h2 class="text-[#036eb1] text-sm font-black uppercase tracking-[0.3em] mb-4">Portefeuille Industriel</h2>
-              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 font-['Ubuntu']">Entreprises du Secteur</h3>
+              <h2 class="text-[#036eb1] text-sm font-black uppercase tracking-[0.3em] mb-4">{{ 'SECTEURS.INDUSTRY_PAGE.PORTFOLIO' | translate }}</h2>
+              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 font-['Ubuntu']">{{ 'SECTEURS.INDUSTRY_PAGE.COMPANIES' | translate }}</h3>
             </div>
             <div class="h-1 bg-gray-100 flex-1 ml-10 hidden md:block mb-4"></div>
           </div>
@@ -84,7 +85,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                   </div>
 
                   <div class="space-y-6" *ngIf="expandedCardId === 'diwa'">
-                    <h5 class="text-sm font-black text-[#036eb1] uppercase tracking-widest">Spécialités</h5>
+                    <h5 class="text-sm font-black text-[#036eb1] uppercase tracking-widest">{{ 'SECTEURS.INDUSTRY_PAGE.SPECIALTIES' | translate }}</h5>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
                       <div class="flex items-center p-4 bg-gray-50 rounded-2xl group-hover:bg-blue-50 transition-colors">
                         <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-[#ae151e] shadow-sm mr-4">
@@ -111,7 +112,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                   <div *ngIf="expandedCardId === 'diwa'" class="mt-8 pt-8 border-t border-gray-100 animate-fade-in">
                     <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
                       <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-6 flex items-center">
-                        <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation Détaillée
+                        <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.INDUSTRY_PAGE.DETAILED_PRESENTATION' | translate }}
                       </h5>
                       <div class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4 font-['Ubuntu']">
                         <p>C’est la filiale spécialisée dans la production et commercialisation d’emballages et contenants métalliques au Togo. Elle produit pour le marché togolais et exporte dans la sous région. Elle est certifiée ISO 9001/2025</p>
@@ -120,7 +121,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                   </div>
 
                   <button (click)="toggleCard('diwa')" class="mt-10 text-[#036eb1] font-bold text-sm uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-all">
-                    {{ expandedCardId === 'diwa' ? 'Voir moins' : 'Voir plus' }} 
+                    {{ expandedCardId === 'diwa' ? ('SECTEURS.ENERGY_PAGE.SEE_LESS' | translate) : ('SECTEURS.ENERGY_PAGE.SEE_MORE' | translate) }} 
                     <i class="fas ml-3 text-xs transition-transform" [class.fa-arrow-right]="expandedCardId !== 'diwa'" [class.fa-chevron-up]="expandedCardId === 'diwa'"></i>
                   </button>
                 </div>
@@ -188,7 +189,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                     <div class="space-y-8">
                       <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
                         <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-6 flex items-center">
-                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation
+                          <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.INDUSTRY_PAGE.DETAILED_PRESENTATION' | translate }}
                         </h5>
                         <div class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4 font-['Ubuntu']">
                           <p>La société JCEM GROUPE TOGO SAS est née des cendres de la société JELCEM. JCEM GROUPE, comme JELCEM, est une société qui fournit du béton prêt à l’emploi pour les travaux de construction de bâtiments et d’infrastructures. Elle exploite une centrale à béton d’une capacité de 120 000 m3/an. Le béton est obtenu par mélange minutieux du ciment et autres matières (sable, gravier, adjuvant, eau) en divers dosages. Entièrement dépendant du marché de la construction, la fabrication du béton prêt à l’emploi enregistre une forte demande à cause des grands travaux d’infrastructures entrepris non seulement par le Gouvernement mais aussi par le secteur privée (construction de nouveau port de pêche de Gbetsogbé, la construction du siège de la NSIA-Togo, la construction des immeubles pour multiple usages, la construction d’hôtels etc, les habitations, pour ne citer que ceux-là). La demande potentielle de béton au Togo est évaluée à 5,4 millions de m3 par an.</p>
@@ -238,7 +239,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                   </div>
 
                   <button (click)="toggleCard('jcem')" class="mt-10 text-[#036eb1] font-bold text-sm uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-all">
-                    {{ expandedCardId === 'jcem' ? 'Voir moins' : 'Voir plus' }} 
+                    {{ expandedCardId === 'jcem' ? ('SECTEURS.ENERGY_PAGE.SEE_LESS' | translate) : ('SECTEURS.ENERGY_PAGE.SEE_MORE' | translate) }} 
                     <i class="fas ml-3 text-xs transition-transform" [class.fa-arrow-right]="expandedCardId !== 'jcem'" [class.fa-chevron-up]="expandedCardId === 'jcem'"></i>
                   </button>
                 </div>
@@ -300,11 +301,11 @@ import { FooterComponent } from '../../../components/footer/footer.component';
                       <div class="space-y-8">
                         <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
                           <h5 class="text-[#ae151e] font-black text-xs uppercase tracking-widest mb-6 flex items-center">
-                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> Présentation Générale
+                            <span class="w-8 h-[2px] bg-[#ae151e] mr-3"></span> {{ 'SECTEURS.INDUSTRY_PAGE.DETAILED_PRESENTATION' | translate }}
                           </h5>
                           <div class="space-y-6">
                             <div>
-                              <p class="text-xs font-black text-[#036eb1] uppercase tracking-tighter mb-2">Siège social</p>
+                              <p class="text-xs font-black text-[#036eb1] uppercase tracking-tighter mb-2">{{ 'SECTEURS.ENERGY_PAGE.HEADQUARTERS' | translate }}</p>
                               <p class="text-gray-700 text-sm font-['Ubuntu']">Lomé, BKS, quartier Agoè-nyivé</p>
                             </div>
                             <div>
@@ -340,7 +341,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
 
                   <button (click)="toggleCard('daba')" 
                           class="mt-10 text-[#036eb1] font-bold text-sm uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-all">
-                    {{ expandedCardId === 'daba' ? 'Voir moins' : 'Voir plus' }} 
+                    {{ expandedCardId === 'daba' ? ('SECTEURS.ENERGY_PAGE.SEE_LESS' | translate) : ('SECTEURS.ENERGY_PAGE.SEE_MORE' | translate) }} 
                     <i class="fas ml-3 text-xs transition-transform" 
                        [class.fa-arrow-right]="expandedCardId !== 'daba'" 
                        [class.fa-chevron-up]="expandedCardId === 'daba'"></i>
@@ -356,9 +357,9 @@ import { FooterComponent } from '../../../components/footer/footer.component';
       <section class="py-20 bg-[#036eb1] relative overflow-hidden text-white text-center">
         <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
         <div class="container mx-auto px-6 relative z-10">
-          <h2 class="text-3xl md:text-5xl font-black font-['Ubuntu'] mb-10">Vous avez un projet dans ce secteur ?</h2>
+          <h2 class="text-3xl md:text-5xl font-black font-['Ubuntu'] mb-10">{{ 'CTA.TITLE' | translate }}</h2>
           <a routerLink="/" fragment="contact" class="inline-block bg-[#ae151e] hover:bg-[#8e1118] text-white px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95">
-            Contactez-nous
+            {{ 'CTA.BUTTON' | translate }}
           </a>
         </div>
       </section>

@@ -76,7 +76,6 @@ export class SecteursComponent implements OnInit {
 
   getSecteurName(item: Secteur): string {
     const nameMap: { [key: string]: string } = {
-      'Énergie': 'SECTEURS.ENERGIE',
       'Industrie': 'SECTEURS.INDUSTRIE',
       'Services': 'SECTEURS.SERVICES'
     };
@@ -85,7 +84,6 @@ export class SecteursComponent implements OnInit {
 
   getImagePath(name: string): string {
     const images: { [key: string]: string } = {
-      'Énergie': 'assets/images/energie.jpg',
       'Industrie': 'assets/images/industrie.jpg',
       'Services': 'assets/images/services.jpg'
     };
@@ -100,8 +98,8 @@ export class SecteursComponent implements OnInit {
   ngOnInit() {
     this.apiService.getSecteurs().subscribe({
       next: (data) => {
-        // STRICTEMENT 3 secteurs dans cet ordre exact
-        const order = ['Énergie', 'Industrie', 'Services'];
+        // STRICTEMENT 2 secteurs dans cet ordre exact
+        const order = ['Industrie', 'Services'];
         this.secteurs = order
           .map(name => data.find(s => s.name === name))
           .filter((s): s is Secteur => !!s);
