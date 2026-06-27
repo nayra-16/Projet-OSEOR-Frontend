@@ -107,7 +107,8 @@
     "FILTERS": {
       "ALL": "Tous",
       "ENERGY": "Énergie",
-      "SERVICES": "Services"
+      "SERVICES": "Services",
+      "INDUSTRY": "Industrie"
     }
   },
   "ABOUT_PAGE": {
@@ -222,11 +223,13 @@
   "FOOTER": {
     "DESCRIPTION": "OSEOR est une holding spécialisée en investissement et en ingénierie financière. Nous accompagnons les PME et start-up à fort potentiel dans la structuration, le financement et le développement de leurs activités.",
     "QUICK_LINKS": "Liens utiles",
+    "CONTACT": "Contact",
     "LEGAL": "Légal",
     "PRIVACY": "Politique de confidentialité",
     "TERMS": "Conditions générales",
     "MENTIONS": "Mentions légales",
-    "RIGHTS": "Tous droits réservés."
+    "RIGHTS": "Tous droits réservés.",
+    "MADE_BY": "Fait par H.NAYRA"
   },
   "COMMON": {
     "SEE_DETAILS": "Voir détails",

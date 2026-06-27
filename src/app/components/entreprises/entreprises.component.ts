@@ -61,13 +61,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
               
               <!-- Bouton VOIR PLUS -->
               <a *ngIf="item.officialSite" 
-                 [href]="item.officialSite" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="mt-auto inline-flex items-center text-oseor-blue font-bold text-sm uppercase tracking-wider hover:text-[#ae151e] transition-colors group/btn">
-                Voir plus
-                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform"></i>
-              </a>
+                   [href]="item.officialSite" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="mt-auto inline-flex items-center text-oseor-blue font-bold text-sm uppercase tracking-wider hover:text-[#ae151e] transition-colors group/btn">
+                  {{ 'SECTEURS.ENERGY_PAGE.SEE_MORE' | translate }}
+                  <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform"></i>
+                </a>
             </div>
           </div>
 
@@ -118,7 +118,7 @@ export class EntreprisesComponent implements OnInit {
   ];
 
   filteredEntreprises: Entreprise[] = [];
-  categories: string[] = ['Tous', 'Énergie', 'Services'];
+  categories: string[] = ['Tous', 'Énergie', 'Services', 'Industrie'];
   selectedSecteur: string = 'Tous';
   loading: boolean = false;
   error: string | null = null;
@@ -130,7 +130,8 @@ export class EntreprisesComponent implements OnInit {
     const map: { [key: string]: string } = {
       'Tous': 'PARTICIPATIONS.FILTERS.ALL',
       'Énergie': 'PARTICIPATIONS.FILTERS.ENERGY',
-      'Services': 'PARTICIPATIONS.FILTERS.SERVICES'
+      'Services': 'PARTICIPATIONS.FILTERS.SERVICES',
+      'Industrie': 'PARTICIPATIONS.FILTERS.INDUSTRY'
     };
     return this.translate.instant(map[cat] || cat);
   }

@@ -42,7 +42,7 @@ import { TranslateModule } from '@ngx-translate/core';
           <!-- Column 3: Contact -->
           <div class="flex flex-col items-center md:items-start">
             <h4 class="text-[11px] font-black text-gray-900 uppercase tracking-[0.2em] mb-6 font-['Ubuntu'] relative pb-2">
-              Contact
+              {{ 'FOOTER.CONTACT' | translate }}
               <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-6 h-0.5 bg-[#ae151e]"></span>
             </h4>
             <ul class="space-y-3 text-gray-500 text-sm font-medium font-['Ubuntu'] text-center md:text-left">
@@ -81,7 +81,7 @@ import { TranslateModule } from '@ngx-translate/core';
             &copy; 2026 OSEOR. {{ 'FOOTER.RIGHTS' | translate }}
           </p>
           <p class="text-[#ffffff] text-[9px] font-medium uppercase tracking-[0.1em] font-['Ubuntu'] text-center">
-            Fait par H.NAYRA
+            {{ 'FOOTER.MADE_BY' | translate }}
           </p>
         </div>
       </div>

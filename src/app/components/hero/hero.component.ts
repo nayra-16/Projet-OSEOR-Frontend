@@ -26,12 +26,6 @@ import { TranslateModule } from '@ngx-translate/core';
           <p class="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-['Ubuntu'] max-w-2xl" data-aos="fade-up" data-aos-delay="100">
             {{ 'HERO.DESCRIPTION' | translate }}
           </p>
-          <div class="flex flex-col sm:flex-row gap-5" data-aos="fade-up" data-aos-delay="200">
-            <button class="bg-oseor-red text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.15em] hover:bg-[#ae151e] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-xl group">
-              {{ 'HERO.BUTTON' | translate }}
-              <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
-            </button>
-          </div>
         </div>
       </div>
 

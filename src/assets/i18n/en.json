@@ -103,11 +103,12 @@
   },
   "PARTICIPATIONS": {
     "TITLE": "Our Participations",
-    "DESCRIPTION": "Through its equity participation, OSEOR supports the growth of high-potential companies and contributes to building high-performing and sustainable groups.",
+    "DESCRIPTION": "Through its equity participations, OSEOR supports the growth of high-potential companies and contributes to building high-performing and sustainable groups.",
     "FILTERS": {
       "ALL": "All",
       "ENERGY": "Energy",
-      "SERVICES": "Services"
+      "SERVICES": "Services",
+      "INDUSTRY": "Industry"
     }
   },
   "ABOUT_PAGE": {
@@ -222,11 +223,13 @@
   "FOOTER": {
     "DESCRIPTION": "OSEOR is a holding company specialized in investment and financial engineering. We support high-potential SMEs and start-ups in structuring, financing, and developing their activities.",
     "QUICK_LINKS": "Quick Links",
+    "CONTACT": "Contact",
     "LEGAL": "Legal",
     "PRIVACY": "Privacy Policy",
     "TERMS": "General Terms",
     "MENTIONS": "Legal Notices",
-    "RIGHTS": "All rights reserved."
+    "RIGHTS": "All rights reserved.",
+    "MADE_BY": "Made by H.NAYRA"
   },
   "COMMON": {
     "SEE_DETAILS": "See details",

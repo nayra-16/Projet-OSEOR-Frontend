@@ -101,6 +101,16 @@
     "DESC": "Vamos falar sobre o seu projeto e construir juntos o seu sucesso futuro.",
     "BUTTON": "Contate-nos"
   },
+  "PARTICIPATIONS": {
+    "TITLE": "Nossas Participações",
+    "DESCRIPTION": "Através das suas participações acionárias, a OSEOR apoia o crescimento de empresas de alto potencial e contribui para a construção de grupos de alto desempenho e sustentáveis.",
+    "FILTERS": {
+      "ALL": "Todos",
+      "ENERGY": "Energia",
+      "SERVICES": "Serviços",
+      "INDUSTRY": "Indústria"
+    }
+  },
   "ABOUT_PAGE": {
     "BADGE": "Sobre a OSEOR",
     "TITLE": "Uma visão estratégica ao serviço do crescimento",
@@ -181,13 +191,15 @@
     "MESSAGES_EMPTY_DESC": "Ainda não recebeu pedidos de contato."
   },
   "FOOTER": {
-    "DESCRIPTION": "A OSEOR é uma holding especializada em investimento e engenharia financeira. Apoiamos PMEs e startups de alto potencial na estruturação, financiamento e desenvolvimento de suas atividades.",
+    "DESCRIPTION": "A OSEOR é uma holding especializada em investimento e engenharia financeira. Apoiamos PMEs e startups de alto potencial na estruturação, financiamento e desenvolvimento das suas atividades.",
     "QUICK_LINKS": "Links úteis",
-    "LEGAL": "Legal",
+    "CONTACT": "Contato",
+    "LEGAL": "Jurídico",
     "PRIVACY": "Política de Privacidade",
     "TERMS": "Termos Gerais",
     "MENTIONS": "Avisos Legais",
-    "RIGHTS": "Todos os direitos reservados."
+    "RIGHTS": "Todos os direitos reservados.",
+    "MADE_BY": "Feito por H.NAYRA"
   },
   "COMMON": {
     "SEE_DETAILS": "Ver detalhes",
