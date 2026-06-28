@@ -85,7 +85,7 @@ export class SecteursComponent implements OnInit {
   getImagePath(name: string): string {
     const images: { [key: string]: string } = {
       'Industrie': 'assets/images/industrie.jpg',
-      'Services': 'assets/images/services.jpg'
+      'Services': 'assets/images/sectors/services/services-1.png'
     };
     return images[name] || 'assets/images/default-logo.png';
   }
