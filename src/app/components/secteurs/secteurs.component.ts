@@ -53,9 +53,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             
             <!-- Label Blanc en bas -->
             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 shadow-xl min-w-[85%] text-center rounded-[2px]">
-              <h3 class="text-gray-900 text-[13px] font-black uppercase tracking-wider font-['Ubuntu']">
+              <h3 class="text-gray-900 text-[13px] font-black uppercase tracking-wider font-['Ubuntu'] mb-3">
                 {{ getSecteurName(item) }}
               </h3>
+              <a [routerLink]="getSecteurLink(item.name)" 
+                 (click)="$event.stopPropagation()"
+                 class="inline-flex items-center justify-center bg-[var(--oseor-red)] text-white px-6 py-3 rounded-full font-['Ubuntu'] font-bold text-sm uppercase tracking-wide shadow-md hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300 w-[160px] h-[45px]">
+                Voir plus
+              </a>
             </div>
           </div>
         </div>
@@ -88,6 +93,11 @@ export class SecteursComponent implements OnInit {
       'Services': 'assets/images/sectors/services/services-1.png'
     };
     return images[name] || 'assets/images/default-logo.png';
+  }
+
+  getSecteurLink(name: string): string {
+    const slug = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return `/secteurs/${slug}`;
   }
 
   navigateToSecteur(name: string) {

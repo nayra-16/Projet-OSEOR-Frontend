@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../services/api.service';
-import { Projet } from '../../models/oseor.models';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+interface ProjectDisplay {
+  title: string;
+  description: string;
+  imageUrl: string;
+}
 
 @Component({
   selector: 'app-projets',
@@ -20,119 +24,165 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           </p>
         </div>
 
-        <!-- Loader -->
-        <div *ngIf="isLoading" class="flex justify-center py-12">
-          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-oseor-blue"></div>
-        </div>
-
-        <!-- Error Message -->
-        <div *ngIf="error" class="text-center py-12 text-[#ae151e] font-['Ubuntu']">
-          {{ error }}
-        </div>
-
         <!-- Slider Horizontal (Cartes style Maquette) -->
-        <div class="relative group" *ngIf="!isLoading && !error">
+        <div class="relative group">
           <div #slider
-               class="flex overflow-x-auto gap-4 md:gap-6 pb-8 no-scrollbar snap-x snap-mandatory scroll-smooth justify-center"
+               class="flex overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory scroll-smooth"
+               [style.scrollBehavior]="'smooth'"
                (scroll)="onScroll()">
-            <div *ngFor="let item of projets" 
-                 class="bg-white rounded-[10px] shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[260px] snap-center overflow-hidden border border-gray-50">
-              
-              <!-- Image Claire (Haut) -->
-              <div class="h-[160px] w-full overflow-hidden">
-                <img [src]="getImagePath(item.title)" 
-                     [alt]="item.title" 
-                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              </div>
-              
-              <!-- Contenu & Bouton (Bas) -->
-              <div class="p-5 text-center flex flex-col items-center">
-                <h3 class="text-[15px] font-bold text-gray-900 font-['Ubuntu'] mb-4 line-clamp-1">
-                  {{ getProjectTitle(item.title) }}
-                </h3>
-                <button class="w-full bg-oseor-blue text-white py-2.5 rounded-[6px] text-[12px] font-bold uppercase tracking-widest hover:bg-oseor-blue/90 transition-all font-['Ubuntu']">
-                  {{ 'COMMON.SEE_DETAILS' | translate }}
-                </button>
+            <!-- Slides (2 sur desktop/tablet, 4 sur mobile) -->
+            <div *ngFor="let slide of currentSlides; let i = index" 
+                 class="flex flex-shrink-0 w-full gap-6 justify-center px-4 sm:px-0 snap-start">
+              <div *ngFor="let item of slide" 
+                   class="bg-white rounded-[18px] shadow-md hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[90%] sm:w-[calc(50%-12px)] lg:w-[350px] overflow-hidden hover:-translate-y-[8px]">
+                
+                <!-- Image en haut (coins supérieurs arrondis) -->
+                <div class="h-[230px] w-full overflow-hidden rounded-t-[18px]">
+                  <img [src]="item.imageUrl" 
+                       [alt]="item.title" 
+                       class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Partie inférieure bleue -->
+                <div class="p-5 flex flex-col items-center text-center bg-[#036eb1] h-[170px]">
+                  <h3 class="text-white text-base font-bold font-['Ubuntu'] mb-2 uppercase leading-tight">
+                    {{ item.title }}
+                  </h3>
+                  
+                  <!-- Description courte -->
+                  <p class="text-white text-sm font-['Ubuntu'] mb-4 leading-relaxed">
+                    {{ item.description }}
+                  </p>
+                  
+                  <!-- Bouton VOIR DÉTAILS -->
+                  <button class="w-[80%] h-[45px] bg-[#ae151e] text-white font-bold font-['Ubuntu'] uppercase tracking-wide rounded-full hover:shadow-lg hover:-translate-y-[2px] transition-all duration-300 mt-auto">
+                    VOIR DÉTAILS
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Navigation Buttons -->
           <button (click)="scrollPrev()" 
-                  class="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white text-oseor-blue rounded-full shadow-lg flex items-center justify-center hover:bg-oseor-blue hover:text-white transition-all duration-300 z-10 border border-gray-100 opacity-0 group-hover:opacity-100">
+                  class="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white text-[#036eb1] rounded-full shadow-lg flex items-center justify-center hover:bg-[#036eb1] hover:text-white transition-all duration-300 z-10 border border-gray-100 opacity-0 group-hover:opacity-100">
             <i class="fas fa-chevron-left text-xs"></i>
           </button>
           
           <button (click)="scrollNext()" 
-                  class="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white text-oseor-blue rounded-full shadow-lg flex items-center justify-center hover:bg-oseor-blue hover:text-white transition-all duration-300 z-10 border border-gray-100 opacity-0 group-hover:opacity-100">
+                  class="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white text-[#036eb1] rounded-full shadow-lg flex items-center justify-center hover:bg-[#036eb1] hover:text-white transition-all duration-300 z-10 border border-gray-100 opacity-0 group-hover:opacity-100">
             <i class="fas fa-chevron-right text-xs"></i>
           </button>
         </div>
 
-        <!-- Carousel Dots (2 points) -->
-        <div *ngIf="!isLoading && !error" class="flex justify-center space-x-2 mt-4">
-          <span class="w-2 h-2 rounded-full transition-all duration-300"
-                [ngClass]="isFirstHalf ? 'bg-oseor-blue w-4' : 'bg-gray-200'"></span>
-          <span class="w-2 h-2 rounded-full transition-all duration-300"
-                [ngClass]="!isFirstHalf ? 'bg-oseor-blue w-4' : 'bg-gray-200'"></span>
+        <!-- Carousel Dots -->
+        <div class="flex justify-center space-x-2 mt-4">
+          <span *ngFor="let dot of dots; let i = index"
+                class="w-2 h-2 rounded-full transition-all duration-300"
+                [ngClass]="currentSlideIndex === i ? 'bg-[#036eb1] w-4' : 'bg-gray-200'"></span>
         </div>
       </div>
     </section>
   `
 })
-export class ProjetsComponent implements OnInit {
+export class ProjetsComponent implements OnInit, OnDestroy {
   @ViewChild('slider') slider!: ElementRef;
   
-  projets: Projet[] = [];
-  isLoading = true;
-  error: string | null = null;
-  isFirstHalf = true;
+  currentSlideIndex = 0;
+
+  // Projets spécifiques demandés
+  projectDisplays: ProjectDisplay[] = [
+    {
+      title: 'ZENER SA',
+      description: 'Mobilisation de 16 milliards FCFA pour développer les activités de distribution de gaz.',
+      imageUrl: 'assets/images/zener-sa.png'
+    },
+    {
+      title: 'Radisson Abidjan',
+      description: 'Étude et mobilisation de ressources pour la construction d\'un hôtel 5 étoiles Radisson Blu.',
+      imageUrl: 'assets/images/radisson-abidjan.png'
+    },
+    {
+      title: 'Sheraton Bamako',
+      description: 'Étude et mobilisation de ressources pour le financement de Sheraton Bamako.',
+      imageUrl: 'assets/images/sheraton-bamako.png'
+    },
+    {
+      title: 'Aéroport International Gnassingbé Eyadema',
+      description: 'Contrôle des travaux du système hydrant de l\'Aéroport International.',
+      imageUrl: 'assets/images/aeroport-gnassingbe-eyadema.png'
+    }
+  ];
+
+  // Slides pour desktop/tablet (2 cartes par slide)
+  desktopSlides: ProjectDisplay[][] = [];
+  
+  // Slides pour mobile (1 carte par slide)
+  mobileSlides: ProjectDisplay[][] = [];
+  
+  // Slides actuels en fonction de la taille de l'écran
+  currentSlides: ProjectDisplay[][] = [];
+  
+  // Points indicateurs du carousel
+  dots: number[] = [];
+  
+  // Listener pour le resize
+  private resizeListener!: (() => void);
 
   constructor(
-    private apiService: ApiService,
     private translate: TranslateService
-  ) {}
-
-  getProjectTitle(title: string): string {
-    const titleMap: { [key: string]: string } = {
-      'Centrale Solaire Blitta': 'PROJETS.P1_TITLE',
-      'Complexe Industriel Kara': 'PROJETS.P2_TITLE',
-      'Pont de l\'Émergence': 'PROJETS.P3_TITLE'
-    };
-    return this.translate.instant(titleMap[title] || title);
-  }
-
-  getImagePath(title: string): string {
-    const images: { [key: string]: string } = {
-      'Centrale Solaire Blitta': 'assets/images/projet-1.jpg',
-      'Complexe Industriel Kara': 'assets/images/projet-2.jpg',
-      'Pont de l\'Émergence': 'assets/images/projet-3.jpg'
-    };
-    return images[title] || 'assets/images/default-logo.png';
+  ) {
+    // Initialiser les slides
+    this.desktopSlides = [
+      [this.projectDisplays[0], this.projectDisplays[1]],
+      [this.projectDisplays[2], this.projectDisplays[3]]
+    ];
+    
+    this.mobileSlides = this.projectDisplays.map(p => [p]);
   }
 
   ngOnInit() {
-    this.apiService.getProjets().subscribe({
-      next: (data) => {
-        this.projets = data;
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.error = err.message || "Erreur de chargement des projets.";
-        this.isLoading = false;
+    this.updateSlides();
+    
+    // Ajouter un listener pour le resize
+    this.resizeListener = () => this.updateSlides();
+    window.addEventListener('resize', this.resizeListener);
+  }
+
+  ngOnDestroy() {
+    // Retirer le listener
+    if (this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+    }
+  }
+
+  updateSlides() {
+    // Vérifier si on est sur mobile (< 640px)
+    const isMobile = window.innerWidth < 640;
+    
+    this.currentSlides = isMobile ? this.mobileSlides : this.desktopSlides;
+    this.dots = Array(this.currentSlides.length).fill(0);
+    this.currentSlideIndex = 0;
+    
+    // Réinitialiser la position du slider
+    setTimeout(() => {
+      if (this.slider) {
+        this.slider.nativeElement.scrollLeft = 0;
       }
-    });
+    }, 0);
   }
 
   scrollPrev() {
     if (this.slider) {
       const el = this.slider.nativeElement;
-      const scrollAmount = el.offsetWidth;
+      const slideWidth = el.offsetWidth;
 
       if (el.scrollLeft <= 10) {
-        el.scrollTo({ left: el.scrollWidth, behavior: 'smooth' });
+        // Passer au dernier slide
+        el.scrollTo({ left: el.scrollWidth - slideWidth, behavior: 'smooth' });
       } else {
-        el.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        // Revenir au slide précédent
+        el.scrollBy({ left: -slideWidth, behavior: 'smooth' });
       }
     }
   }
@@ -140,13 +190,15 @@ export class ProjetsComponent implements OnInit {
   scrollNext() {
     if (this.slider) {
       const el = this.slider.nativeElement;
-      const scrollAmount = el.offsetWidth;
-      const maxScroll = el.scrollWidth - el.offsetWidth;
+      const slideWidth = el.offsetWidth;
+      const maxScroll = el.scrollWidth - slideWidth;
 
       if (el.scrollLeft >= maxScroll - 10) {
+        // Revenir au premier slide
         el.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
-        el.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        // Passer au slide suivant
+        el.scrollBy({ left: slideWidth, behavior: 'smooth' });
       }
     }
   }
@@ -154,8 +206,9 @@ export class ProjetsComponent implements OnInit {
   onScroll() {
     if (this.slider) {
       const el = this.slider.nativeElement;
-      const maxScroll = el.scrollWidth - el.offsetWidth;
-      this.isFirstHalf = el.scrollLeft < maxScroll / 2;
+      const slideWidth = el.offsetWidth;
+      // Calculer l'index du slide actuel
+      this.currentSlideIndex = Math.round(el.scrollLeft / slideWidth);
     }
   }
 }
