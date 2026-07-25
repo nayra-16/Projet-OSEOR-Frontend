@@ -39,8 +39,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           {{ error }}
         </div>
 
+        <!-- Empty State -->
+        <div *ngIf="!loading && !error && filteredEntreprises.length === 0" class="text-center py-16 text-gray-500">
+          <i class="fas fa-building text-5xl mb-4 text-gray-300"></i>
+          <p>Aucune participation disponible pour le moment.</p>
+        </div>
+
         <!-- Grille des Entreprises (Slider Horizontal) -->
-        <div class="relative group" *ngIf="!loading && !error">
+        <div class="relative group" *ngIf="!loading && !error && filteredEntreprises.length > 0">
           <div #slider
                class="flex overflow-x-auto gap-6 md:gap-8 pb-12 no-scrollbar snap-x snap-mandatory scroll-smooth"
                (scroll)="onScroll()">
@@ -48,8 +54,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
                  class="bg-white border border-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc((100%-4rem)/3)] snap-center transform hover:-translate-y-2">
               <!-- Icon/Logo -->
               <div class="w-32 h-32 mb-8 flex items-center justify-center bg-gray-50 rounded-2xl group-hover:bg-white transition-colors duration-500 overflow-hidden p-4">
-                <img [src]="item.logoUrl" 
+                <img [src]="item.logoUrl || defaultLogoUrl" 
                      [alt]="item.name" 
+                     (error)="onLogoError($event)"
                      width="96" 
                      height="96" 
                      loading="lazy" 
@@ -85,7 +92,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         </div>
 
         <!-- Indicateurs du slider (2 points) -->
-        <div *ngIf="!loading && !error" class="flex justify-center space-x-2 mt-4">
+        <div *ngIf="!loading && !error && filteredEntreprises.length > 0" class="flex justify-center space-x-2 mt-4">
           <span class="w-2.5 h-2.5 rounded-full transition-all duration-300"
                 [ngClass]="isFirstHalf ? 'bg-oseor-blue w-6' : 'bg-gray-200'"></span>
           <span class="w-2.5 h-2.5 rounded-full transition-all duration-300"
@@ -97,8 +104,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class EntreprisesComponent implements OnInit {
   @ViewChild('slider') slider!: ElementRef;
-  
+
+  readonly defaultLogoUrl = 'assets/images/default-logo.png';
+
   entreprises: Entreprise[] = [
+    // ÉNERGIE (8 - inchangé)
     { name: 'ZIH — ZENER International Holding', secteur: 'Énergie', description: 'Holding énergie du Groupe ZENER spécialisée dans les investissements, infrastructures de stockage, transport de combustible et solutions énergétiques diversifiées.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
     { name: 'ZENER TOGO SA', secteur: 'Énergie', description: 'Filiale spécialisée dans l’importation, le stockage et la distribution des produits pétroliers, GPL, lubrifiants et accessoires du gaz.', logoUrl: 'assets/images/partners/zener .png', officialSite: 'https://zener.tg/' } as Entreprise,
     { name: 'POWER LINK SOLUTIONS SA', secteur: 'Énergie', description: 'Entreprise spécialisée dans le trading, le stockage et les infrastructures de gaz butane avec dépôt gazier en zone portuaire.', logoUrl: 'assets/images/partners/pls.png', officialSite: 'https://pls.tg/' } as Entreprise,
@@ -107,11 +117,15 @@ export class EntreprisesComponent implements OnInit {
     { name: 'BLUEN SA', secteur: 'Énergie', description: 'Filiale de développement de solutions d’énergies renouvelables, solutions solaires et transition énergétique.', logoUrl: 'assets/images/partners/bluen.png', officialSite: 'https://bluen.tg/' } as Entreprise,
     { name: 'ZENER BENIN SA', secteur: 'Énergie', description: 'Filiale créée en 2023 spécialisée dans la distribution de produits pétroliers, GPL et développement énergétique au Bénin.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
     { name: 'ZEN GRUPO LDA', secteur: 'Énergie', description: 'Acteur dominant du secteur pétrolier et gazier en Guinée-Bissau spécialisé dans le stockage et la distribution énergétique.', logoUrl: 'assets/images/partners/zih.png' } as Entreprise,
+
+    // SERVICES (5)
     { name: 'KAPI CONSULT', secteur: 'Services', description: 'Cabinet spécialisé dans le conseil stratégique et l’assistance technique.', logoUrl: 'assets/images/partners/kapiconsult.png', officialSite: 'https://kapiconsult.tg/' } as Entreprise,
-    { name: 'DIWA INTERNATIONAL', secteur: 'Services', description: 'Spécialiste des équipements automobiles et industriels.', logoUrl: 'assets/images/partners/diwa-indus.png' } as Entreprise,
-    { name: 'BONICI', secteur: 'Industrie', description: 'Entreprise spécialisée dans la restauration rapide et les produits locaux.', logoUrl: 'assets/images/partners/bonici.png', officialSite: 'https://bonici.africa/' } as Entreprise,
+    { name: 'DIWA INTERNATIONAL', secteur: 'Services', description: 'Spécialiste des équipements automobiles et industriels.', logoUrl: 'assets/images/partners/diwa-international.png', officialSite: 'https://diwaindustries.tg/' } as Entreprise,
+    { name: 'BONICI', secteur: 'Services', description: 'Entreprise spécialisée dans la restauration rapide et les produits locaux.', logoUrl: 'assets/images/partners/bonici.png', officialSite: 'https://bonici.africa/' } as Entreprise,
     { name: 'TRFS', secteur: 'Services', description: 'Référence dans le transport routier et la logistique au Togo.', logoUrl: 'assets/images/partners/trfs.png', officialSite: 'https://trfs.africa/' } as Entreprise,
-    { name: '@TOGO', secteur: 'Industrie', description: 'Entreprise innovante spécialisée dans les solutions digitales et la fintech.', logoUrl: 'assets/images/partners/attogo.png', officialSite: 'https://arobase.tg/' } as Entreprise,
+    { name: '@TOGO', secteur: 'Services', description: 'Entreprise innovante spécialisée dans les solutions digitales et la fintech.', logoUrl: 'assets/images/partners/attogo.png', officialSite: 'https://arobase.tg/' } as Entreprise,
+
+    // INDUSTRIE (3)
     { name: 'DIWA INDUSTRIES', secteur: 'Industrie', description: 'Spécialiste de l’emballage industriel et du stockage énergétique.', logoUrl: 'assets/images/partners/diwa-indus.png', officialSite: 'https://diwaindustries.tg/' } as Entreprise,
     { name: 'JCEMGROUP TOGO', secteur: 'Industrie', description: 'Expert en béton prêt à l’emploi et solutions BTP modernes.', logoUrl: 'assets/images/partners/jcem.png', officialSite: 'https://jcem.tg/' } as Entreprise,
     { name: 'DABA', secteur: 'Industrie', description: 'Entreprise agro-industrielle spécialisée dans la transformation de produits d’élevage.', logoUrl: 'assets/images/partners/daba.png', officialSite: 'https://daba.tg/' } as Entreprise
@@ -123,7 +137,7 @@ export class EntreprisesComponent implements OnInit {
   loading: boolean = false;
   error: string | null = null;
   isFirstHalf = true;
-  
+
   constructor(private translate: TranslateService) {}
 
   getCategoryLabel(cat: string): string {
@@ -149,6 +163,14 @@ export class EntreprisesComponent implements OnInit {
     }
     if (this.slider) {
       this.slider.nativeElement.scrollLeft = 0;
+    }
+    this.isFirstHalf = true;
+  }
+
+  onLogoError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src !== this.defaultLogoUrl) {
+      img.src = this.defaultLogoUrl;
     }
   }
 
@@ -183,7 +205,7 @@ export class EntreprisesComponent implements OnInit {
     if (this.slider) {
       const el = this.slider.nativeElement;
       const maxScroll = el.scrollWidth - el.offsetWidth;
-      this.isFirstHalf = el.scrollLeft < maxScroll / 2;
+      this.isFirstHalf = maxScroll <= 0 ? true : el.scrollLeft < maxScroll / 2;
     }
   }
 }

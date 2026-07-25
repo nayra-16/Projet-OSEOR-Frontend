@@ -1,3 +1,5 @@
+import { Entreprise } from '../../models/oseor.models';
+
 export interface User {
   id?: number;
   email: string;
@@ -11,14 +13,7 @@ export interface AuthenticationResponse {
   role: string;
 }
 
-export interface Participation {
-  id?: number;
-  name: string;
-  secteur: string;
-  description: string;
-  logoUrl: string;
-  officialSite?: string;
-}
+export type Participation = Entreprise;
 
 export interface Projet {
   id?: number;
