@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cta',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [RouterModule, TranslateModule],
   template: `
     <section class="py-16 md:py-20 bg-[#ae151e] relative overflow-hidden" id="contact">
       <!-- Decorative element -->
@@ -22,10 +23,10 @@ import { TranslateModule } from '@ngx-translate/core';
           </div>
           
           <div data-aos="fade-left">
-            <button class="bg-white text-[#ae151e] px-10 md:px-12 py-4 md:py-5 rounded-2xl font-black text-sm uppercase tracking-[0.1em] hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-xl group">
+            <a routerLink="/contact" class="inline-block bg-white text-[#ae151e] px-10 md:px-12 py-4 md:py-5 rounded-2xl font-black text-sm uppercase tracking-[0.1em] hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-xl group">
               {{ 'CTA.BUTTON' | translate }}
               <i class="fas fa-paper-plane ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-            </button>
+            </a>
           </div>
         </div>
       </div>

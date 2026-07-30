@@ -4,11 +4,13 @@ import { AboutComponent } from './pages/about/about.component';
 import { BonPlanComponent } from './pages/bon-plan/bon-plan.component';
 import { OffresEmploiComponent } from './pages/carrieres/offres-emploi/offres-emploi.component';
 import { CandidatureSpontaneeComponent } from './pages/carrieres/candidature-spontanee/candidature-spontanee.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { authGuard } from './admin/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'a-propos', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'bon-plan', component: BonPlanComponent },
   { path: 'appels-offres', loadComponent: () => import('./pages/appels-offres/appels-offres.component').then(m => m.AppelsOffresComponent) },
   { path: 'carrieres/offres', component: OffresEmploiComponent },
